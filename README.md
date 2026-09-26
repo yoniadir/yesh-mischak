@@ -7,6 +7,10 @@ Is there an event at Bloomfield Stadium today? One static page, refreshed daily.
 - Calendar feed (confirmed events only): `…/bloomfield.ics`
   Google Calendar → Other calendars → **From URL** → paste the feed URL. Set a reminder on that calendar for a day-ahead notification.
 
+## First-time setup
+
+Before the first run, enable Pages on the repo: Settings → Pages → Source = **GitHub Actions**.
+
 ## How it works
 
 `refresh/` fetches two sources once a day (GitHub Actions, 03:00 UTC), builds
@@ -36,7 +40,12 @@ Israel Football Association's official fixture PDF. Only `refresh/fixtures.py` c
     python3 -m http.server 8000 -d site
 
 Failure policy: any non-200, unparseable feed or transport error fails the run and commits
-nothing; a successful run with zero events (off-season) is not a failure.
+nothing; a successful run with zero events (off-season) is not a failure. Failure emails
+follow the maintainer's own GitHub Actions notification settings — no separate alerting is
+configured.
+
+The ICS feed and `events.json` keep only the last 7 days of past events, so older events
+drop out of subscribed calendars by design.
 
 ## Attribution
 
