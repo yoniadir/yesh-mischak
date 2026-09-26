@@ -43,3 +43,4 @@ footer a { color: inherit; }
 .cal-event.confirmed { color: var(--confirmed); font-weight: 600; }
 .cal-event.tentative { color: var(--tentative); font-style: italic; }
 .cal-tag { display: block; width: fit-content; max-width: 100%; margin-top: 2px; margin-inline-start: 0; padding: 0 2px; border: 1px dashed var(--tentative); border-radius: 4px; font-style: normal; white-space: nowrap; font-size: .55rem; overflow: hidden; text-overflow: ellipsis; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

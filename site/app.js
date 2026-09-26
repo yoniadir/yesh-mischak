@@ -140,7 +140,7 @@ export function renderCalendar() {
     new Date(Date.UTC(2026, 9, 4 + i, 12)).toLocaleDateString(locale, { weekday: 'short', timeZone: 'UTC' }));
   const { blanks, days } = monthDays(state.month);
 
-  const grid = el('ol', { class: 'cal-grid' },
+  const grid = el('ol', { class: 'cal-grid', 'aria-label': title },
     ...weekdayNames.map((n) => el('li', { class: 'cal-head', 'aria-hidden': 'true' }, n)),
     ...Array.from({ length: blanks }, () => el('li', { class: 'cal-blank', 'aria-hidden': 'true' })),
     ...days.map((date) => {
@@ -150,8 +150,11 @@ export function renderCalendar() {
       if (date < today) classes.push('is-past');
       if (events.some((e) => e.status === 'confirmed')) classes.push('has-confirmed');
       else if (events.length) classes.push('has-tentative');
+      const fullDate = new Date(`${date}T12:00:00Z`).toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
+      const srOnlyText = date === today ? `${fullDate}, ${t('today')}` : fullDate;
       return el('li', { class: classes.join(' ') },
-        el('span', { class: 'cal-num' }, String(Number(date.slice(8)))),
+        el('span', { class: 'cal-num', 'aria-hidden': 'true' }, String(Number(date.slice(8)))),
+        el('span', { class: 'sr-only' }, srOnlyText),
         ...events.map((e) => el('div', { class: `cal-event ${e.status}` },
           `${t(e.kind)} `, ...eventLine(e), e.status === 'tentative' ? el('span', { class: 'cal-tag' }, t('tentative')) : null)),
       );
