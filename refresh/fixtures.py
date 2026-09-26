@@ -26,7 +26,10 @@ def parse_fixtures(json_text: str) -> list[Event]:
             home, away = game["homeCompetitor"], game["awayCompetitor"]
             if home["id"] not in TEL_AVIV_CLUBS:
                 continue
-            start = datetime.fromisoformat(game["startTime"]).astimezone(TZ)
+            start = datetime.fromisoformat(game["startTime"])
+            if start.tzinfo is None:
+                start = start.replace(tzinfo=TZ)
+            start = start.astimezone(TZ)
             game_id = game["id"]
         except (KeyError, TypeError, ValueError) as e:
             raise SourceError(f"fixtures feed game is malformed: {e}") from e

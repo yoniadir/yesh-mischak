@@ -1,8 +1,11 @@
 from datetime import datetime
 
-from conftest import NOW, events_of, venue_payloads
-from refresh.config import TZ
-from refresh.transform import build
+import pytest
+
+from conftest import NOW, events_of, vcal, vevent, venue_payloads
+from refresh.config import STADIUM_NAME, TZ
+from refresh.model import SourceError
+from refresh.transform import Payloads, build
 
 
 def test_only_bloomfield_events_in_window_are_confirmed():
@@ -52,6 +55,23 @@ def test_events_are_sorted_by_date_then_time():
     assert keys == sorted(keys)
     # 2026-01-25 has four Bloomfield events in the real feed
     assert [e["time"] for e in events if e["date"] == "2026-01-25"] == ["17:00", "21:00", "21:00", "22:00"]
+
+
+def test_venue_name_with_leading_whitespace_is_still_matched():
+    padded = vcal(vevent("pad", "20261012T193000", "20261012T220000", venue=f"  {STADIUM_NAME}  "))
+    payloads = Payloads(venue={"10": padded}, fixtures={})
+    events = events_of(build(payloads, NOW))
+    assert [e["date"] for e in events] == ["2026-10-12"]
+
+
+def test_vevent_without_dtstart_raises_source_error():
+    raw = (
+        "BEGIN:VEVENT\r\nUID:no-start\r\n"
+        f"SUMMARY:x\r\nX-LOCATION-DISPLAYNAME:{STADIUM_NAME}\r\nEND:VEVENT\r\n"
+    )
+    payloads = Payloads(venue={"10": vcal(raw)}, fixtures={})
+    with pytest.raises(SourceError):
+        build(payloads, NOW)
 
 
 def test_document_header():

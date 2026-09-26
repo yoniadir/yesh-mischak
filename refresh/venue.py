@@ -14,11 +14,14 @@ def parse_venue(ics_text: str, kind: str) -> list[Event]:
 
     events = []
     for vevent in calendar.walk("VEVENT"):
-        if not str(vevent.get("X-LOCATION-DISPLAYNAME", "")).startswith(STADIUM_NAME):
+        if not str(vevent.get("X-LOCATION-DISPLAYNAME", "")).strip().startswith(STADIUM_NAME):
             continue
-        start = _local(vevent.decoded("DTSTART"))
+        try:
+            start = _local(vevent.decoded("DTSTART"))
+            uid = str(vevent["UID"])
+        except KeyError as e:
+            raise SourceError(f"venue feed VEVENT is missing {e}") from e
         end = _local(vevent.decoded("DTEND")) if "DTEND" in vevent else start
-        uid = str(vevent["UID"])
         for day in _days(start, end):
             events.append(
                 Event(

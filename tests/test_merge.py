@@ -63,6 +63,16 @@ def test_derby_listed_in_both_club_feeds_appears_once():
     assert len(events) == 22
 
 
+def test_fixture_with_naive_start_time_is_treated_as_jerusalem_local():
+    feed = json.dumps({"games": [{
+        "id": 2, "startTime": "2026-11-11T20:00:00",
+        "homeCompetitor": {"id": 566, "name": "מכבי תל אביב"},
+        "awayCompetitor": {"id": 559, "name": "בית\"ר ירושלים"},
+    }]})
+    events = events_of(build(Payloads(venue={}, fixtures={566: feed}), NOW))
+    assert [(e["date"], e["time"]) for e in events] == [("2026-11-11", "20:00")]
+
+
 def test_merged_output_is_sorted():
     events = events_of(build(all_payloads(), NOW))
     keys = [(e["date"], e["time"] or "") for e in events]
