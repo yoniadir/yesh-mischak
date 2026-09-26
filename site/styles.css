@@ -44,3 +44,20 @@ footer a { color: inherit; }
 .cal-event.tentative { color: var(--tentative); font-style: italic; }
 .cal-tag { display: block; width: fit-content; max-width: 100%; margin-top: 2px; margin-inline-start: 0; padding: 0 2px; border: 1px dashed var(--tentative); border-radius: 4px; font-style: normal; white-space: nowrap; font-size: .55rem; overflow: hidden; text-overflow: ellipsis; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.stadium { max-width: 30rem; margin: 16px auto 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #070a1c; }
+.stadium svg { display: block; width: 100%; height: auto; }
+.stadium .shade { fill: #070a1c; opacity: .55; }
+.stadium .beam { fill: #fff6c2; opacity: 0; }
+.stadium .lamp { fill: #3b4150; }
+.stadium .window { fill: #262b36; }
+.stadium .stars { fill: #fff; opacity: .9; }
+.stadium .shade, .stadium .beam, .stadium .lamp, .stadium .window, .stadium .stars { transition: opacity .6s, fill .6s; }
+.stadium[data-lights="on"] .shade { opacity: 0; }
+.stadium[data-lights="on"] .beam { opacity: .22; }
+.stadium[data-lights="on"] .lamp { fill: #ffe066; }
+.stadium[data-lights="on"] .window { fill: #ffd966; }
+.stadium[data-lights="on"] .stars { opacity: .35; }
+@media (prefers-reduced-motion: no-preference) {
+  .stadium[data-lights="on"] .lamp { animation: flicker 3.2s ease-in-out infinite; }
+}
+@keyframes flicker { 50% { opacity: .82; } }
