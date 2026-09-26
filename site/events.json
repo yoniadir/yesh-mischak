@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "generated_at": "2026-09-26T22:45:46+03:00",
+  "timezone": "Asia/Jerusalem",
+  "sources": [
+    {
+      "id": "sportpalace",
+      "name": "היכלי הספורט תל אביב",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/new-blumfield/blumfield-events"
+    },
+    {
+      "id": "365scores",
+      "name": "365Scores",
+      "url": "https://www.365scores.com/he"
+    }
+  ],
+  "events": [
+    {
+      "id": "sportpalace:3A46EFD5-99ED-46F0-9AC1-FBEDE1888C38:2026-09-19",
+      "date": "2026-09-19",
+      "time": "20:30",
+      "title": "בית\"ר ירושלים- הפועל חיפה",
+      "kind": "football",
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בית-ר-ירושלים-הפועל-חיפה"
+    },
+    {
+      "id": "sportpalace:62E52298-C3F1-4AB8-BB5C-5BFB60C065E3:2026-10-10",
+      "date": "2026-10-10",
+      "time": "19:30",
+      "title": "מכבי ת\"א- בני סכנין",
+      "kind": "football",
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-בני-סכנין"
+    },
+    {
+      "id": "sportpalace:6154C526-E6C1-4EC1-B2CC-D2F2CFB88C2E:2026-10-17",
+      "date": "2026-10-17",
+      "time": "18:45",
+      "title": "הפועל ת\"א- עירוני טבריה",
+      "kind": "football",
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-עירוני-טבריה"
+    },
+    {
+      "id": "sportpalace:33482530-D6CA-4B47-96C4-E94B9EF06F4F:2026-10-24",
+      "date": "2026-10-24",
+      "time": "19:30",
+      "title": "מכבי ת\"א-הפועל חיפה",
+      "kind": "football",
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-הפועל-חיפה-2"
+    },
+    {
+      "id": "sportpalace:C3EA0B2D-025A-4237-BB76-BA78EC5E99E2:2026-10-29",
+      "date": "2026-10-29",
+      "time": "20:30",
+      "title": "גמר גביע טוטו הפועל ת\"א- מכבי ת\"א",
+      "kind": "football",
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-גביע-טוטו-הפועל-ת-א-מכבי-ת-א"
+    },
+    {
+      "id": "365scores:4739299",
+      "date": "2026-11-02",
+      "time": "20:30",
+      "title": "הפועל תל אביב – מכבי חיפה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739294",
+      "date": "2026-11-06",
+      "time": "14:00",
+      "title": "מכבי תל אביב – מכבי פתח תקוה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739281",
+      "date": "2026-11-28",
+      "time": "19:00",
+      "title": "מכבי תל אביב – הפועל פתח תקוה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739274",
+      "date": "2026-12-03",
+      "time": "20:00",
+      "title": "הפועל תל אביב – מכבי נתניה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739268",
+      "date": "2026-12-05",
+      "time": "15:00",
+      "title": "מכבי תל אביב – עירוני טבריה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739264",
+      "date": "2026-12-12",
+      "time": "19:00",
+      "title": "מכבי תל אביב – הפועל ירושלים",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739257",
+      "date": "2026-12-19",
+      "time": "19:00",
+      "title": "הפועל תל אביב – הפועל חיפה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739249",
+      "date": "2026-12-29",
+      "time": "19:00",
+      "title": "מכבי תל אביב – הפועל באר שבע",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739241",
+      "date": "2027-01-02",
+      "time": "19:00",
+      "title": "הפועל תל אביב – מכבי תל אביב",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739234",
+      "date": "2027-01-09",
+      "time": "19:00",
+      "title": "מכבי תל אביב – מכבי נתניה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739227",
+      "date": "2027-01-16",
+      "time": "19:00",
+      "title": "הפועל תל אביב – עירוני קרית שמונה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739219",
+      "date": "2027-01-23",
+      "time": "19:00",
+      "title": "מכבי תל אביב – בית\"ר ירושלים",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739212",
+      "date": "2027-01-30",
+      "time": "19:00",
+      "title": "הפועל תל אביב – הפועל ירושלים",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739204",
+      "date": "2027-02-06",
+      "time": "19:00",
+      "title": "מכבי תל אביב – הפועל רמת גן",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739197",
+      "date": "2027-02-13",
+      "time": "19:00",
+      "title": "הפועל תל אביב – הפועל באר שבע",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739196",
+      "date": "2027-02-20",
+      "time": "19:00",
+      "title": "הפועל תל אביב – מכבי פתח תקוה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739188",
+      "date": "2027-02-27",
+      "time": "19:00",
+      "title": "מכבי תל אביב – עירוני קרית שמונה",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    },
+    {
+      "id": "365scores:4739181",
+      "date": "2027-03-06",
+      "time": "19:00",
+      "title": "הפועל תל אביב – בני סכנין",
+      "kind": "football",
+      "status": "tentative",
+      "source": "365scores",
+      "url": null
+    }
+  ]
+}

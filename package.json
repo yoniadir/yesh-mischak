@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "TZ=Pacific/Honolulu node --test site/*.test.js"
+  }
+}

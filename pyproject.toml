@@ -1,0 +1,18 @@
+[project]
+name = "yesh-mischak"
+version = "1.0.0"
+description = "Is there an event at Bloomfield today?"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx==0.28.1",
+    "icalendar==7.3.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
