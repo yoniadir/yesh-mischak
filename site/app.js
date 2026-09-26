@@ -45,7 +45,7 @@ function el(tag, attrs = {}, ...children) {
   return node;
 }
 
-export const eventLine = (e) => `${e.time ? e.time + ' · ' : ''}${e.title}`;
+export const eventLine = (e) => [e.time ? `${e.time} · ` : '', el('bdi', {}, e.title)];
 
 function relativeText({ type, weekday, date }) {
   const locale = t('locale');
@@ -72,14 +72,14 @@ function renderAnswer(vm) {
   const answer = vm.today.busy ? (vm.today.isGame ? t('yesGame') : t('yesEvent')) : t('no');
   today.replaceChildren(
     el('p', { class: 'answer' }, answer),
-    vm.today.busy ? el('ul', {}, ...vm.today.events.map((e) => el('li', {}, eventLine(e)))) : null,
+    ...(vm.today.busy ? [el('ul', {}, ...vm.today.events.map((e) => el('li', {}, ...eventLine(e))))] : []),
   );
 
   const next = $('next');
   next.replaceChildren(
     el('div', { class: 'label' }, t('next')),
     vm.next
-      ? el('div', { class: 'what' }, `${t(vm.next.event.kind)} ${relativeText(vm.next.relative)} · ${eventLine(vm.next.event)}`)
+      ? el('div', { class: 'what' }, `${t(vm.next.event.kind)} ${relativeText(vm.next.relative)} · `, ...eventLine(vm.next.event))
       : el('div', { class: 'what' }, t('noNext')),
   );
 
@@ -94,7 +94,7 @@ function renderFooter(data) {
   $('updated').textContent = `${t('updated')}: ${when}`;
   $('sources').replaceChildren(
     `${t('sources')}: `,
-    ...data.sources.flatMap((s, i) => [i ? ' · ' : '', el('a', { href: s.url, rel: 'noopener' }, s.name)]),
+    ...data.sources.flatMap((s, i) => [i ? ' · ' : '', el('a', { href: s.url, rel: 'noopener' }, el('bdi', {}, s.name))]),
   );
 }
 
