@@ -1,0 +1,1591 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:DPCALENDAR
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Asia/Jerusalem
+X-MICROSOFT-CDO-TZID:27
+BEGIN:STANDARD
+DTSTART:20251025T230000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0200
+TZNAME:IST
+END:STANDARD
+BEGIN:STANDARD
+DTSTART:20261024T230000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0200
+TZNAME:IST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20260327T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0300
+TZNAME:IDT
+END:DAYLIGHT
+END:VTIMEZONE
+X-WR-TIMEZONE:Asia/Jerusalem
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20250722T140000
+DTEND;TZID=Asia/Jerusalem:20250722T150000
+UID:EF9FCB7C-DA64-4FCC-ABBB-D56CA0FF300B
+SUMMARY:גמר גביה המדינה בכדורגל 2025
+CREATED:20250708T113331Z
+DTSTAMP:20250708T113331Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/gmr-gbyh-hmdynh-bkdwrgl-2025
+DESCRIPTION:האירוע המדובר של סוף עונת הכודרגל 
+X-ALT-DESC;FMTTYPE=text/html:<p>האירוע המדובר של סוף עונת הכודרגל </p>
+LAST-MODIFIED:20250708T113331Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-ROOMS:חדר ישיבות
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד [חדר ישיבות]
+X-ACCESS:1
+X-HITS:31
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/headers/walden-pond.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/headers/blue-flower.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20250730T140000
+DTEND;TZID=Asia/Jerusalem:20250731T013000
+UID:20657C3C-BBBA-42EC-BEB2-1C8C33252135
+SUMMARY:גמר גביה המידנה בכדורסל
+CREATED:20250708T113457Z
+DTSTAMP:20250708T113457Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/gmr-gbyh-hmydnh-bkdwrsl
+DESCRIPTION:שתי הקבצות הפועל חולון בויתר ת"א מנצחות 
+X-ALT-DESC;FMTTYPE=text/html:<p>שתי הקבצות הפועל חולון בויתר ת"א מנצחות </p>
+LAST-MODIFIED:20250708T113536Z
+SEQUENCE:39
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:40
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20250930T200000
+DTEND;TZID=Asia/Jerusalem:20250930T220000
+UID:D9C241A8-F86A-402E-A586-F85F54CD7142
+SUMMARY:משחק כדורסל ליגה ווינר
+CREATED:20250917T172219Z
+DTSTAMP:20250917T172219Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/mshq-kdwrsl-lygh-wwynr
+DESCRIPTION:משחק הכדורסל בין שתי הקבוצות החשוות של הליגה
+X-ALT-DESC;FMTTYPE=text/html:<p>משחק הכדורסל בין שתי הקבוצות החשוות של הליגה</p>
+LAST-MODIFIED:20250917T173251Z
+SEQUENCE:632
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:14
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/tempDev/DSC_9821.jpg
+X-IMAGE-INTRO-CAPTION:My image Caption 
+X-SHOW-END-TIME:0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20251129T193000
+DTEND;TZID=Asia/Jerusalem:20251129T223000
+UID:F618ADB6-0C4B-4DD0-BFD0-0CFEC8F11B98
+SUMMARY:הפועל ת"א- בני סכנין
+CREATED:20251124T191211Z
+DTSTAMP:20251124T191211Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-בני-סכנין
+DESCRIPTION:המשחק המדבר
+X-ALT-DESC;FMTTYPE=text/html:<p>המשחק המדבר</p>
+LAST-MODIFIED:20251124T191825Z
+SEQUENCE:374
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-ROOMS:האצטדיון המרכזי
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד [האצטדיון המרכזי]
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730821.jpg
+X-IMAGE-INTRO-ALT:הפועל תל אביב - בני סכנין
+X-SHOW-END-TIME:0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20251230T220000
+DTEND;TZID=Asia/Jerusalem:20251230T230000
+UID:D386DF0B-022D-4ECF-B9B8-C75B9A5A0D50
+SUMMARY:מכבי ת"א- עירוני טבריה
+CREATED:20251206T151510Z
+DTSTAMP:20251206T151510Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-עירוני-טבריה
+LAST-MODIFIED:20251228T080439Z
+SEQUENCE:1874969
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:2
+X-COLOR:71bf44
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730821.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20251230T230000
+DTEND;TZID=Asia/Jerusalem:20251231T000000
+UID:2DC7218D-233F-4D53-A6B5-54E3DCF21063
+SUMMARY:הפועל ת"א- ז'לגריס
+CREATED:20251228T075935Z
+DTSTAMP:20251228T075935Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-ז-לגריס
+LAST-MODIFIED:20251228T075935Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:64459e
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/rsz_home-1-basketball-tn.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260104T221500
+DTEND;TZID=Asia/Jerusalem:20260105T010000
+UID:C5B1D92A-A6EF-4A77-8ABA-D4AD43BAD1F4
+SUMMARY:הפועל ת"א- מ.ס אשדוד
+CREATED:20251228T080110Z
+DTSTAMP:20251228T080110Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מ-ס-אשדוד
+LAST-MODIFIED:20251228T080328Z
+SEQUENCE:138
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:1
+X-COLOR:71bf44
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260125T170000
+DTEND;TZID=Asia/Jerusalem:20260125T173000
+UID:C2E015F9-F32A-4135-BB33-1FF2265BDEC6
+SUMMARY:גביע המדינה סיבוב ח' הפועל ת"א- מ.ס. אשדוד
+CREATED:20251206T151026Z
+DTSTAMP:20251206T151026Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גביע-המדינה-סיבוב-ח-הפועל-ת-א-מ-ס-אשדוד
+LAST-MODIFIED:20260113T122047Z
+SEQUENCE:3273021
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:9
+X-COLOR:f58220
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730821.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260125T210000
+DTEND;TZID=Asia/Jerusalem:20260125T213000
+UID:DB342C89-2BFE-46CD-83A2-DBD2F5680DB5
+SUMMARY:מכבי יפו - מכבי הרצליה
+CREATED:20251124T192025Z
+DTSTAMP:20251124T192025Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-יפו-מכבי-הרצליה
+DESCRIPTION:some content
+X-ALT-DESC;FMTTYPE=text/html:<p>some content</p>
+LAST-MODIFIED:20260113T121905Z
+SEQUENCE:4294720
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-ROOMS:האצטדיון המרכזי
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד [האצטדיון המרכזי]
+X-ACCESS:1
+X-HITS:6
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730269.jpg
+X-SHOW-END-TIME:0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260125T210000
+DTEND;TZID=Asia/Jerusalem:20260125T220000
+UID:F20E2724-2E07-4C52-AAE1-C7A1379DE117
+SUMMARY:מכבי ת"א - הפועל חיפה
+CREATED:20251124T192123Z
+DTSTAMP:20251124T192123Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-הפועל-חיפה
+LAST-MODIFIED:20260113T121915Z
+SEQUENCE:4294672
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-ROOMS:האצטדיון המרכזי
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד [האצטדיון המרכזי]
+X-ACCESS:1
+X-HITS:10
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730821.jpg
+X-SHOW-END-TIME:0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260125T220000
+DTEND;TZID=Asia/Jerusalem:20260125T223000
+UID:86DB7E38-237C-460C-8A2B-D420DE813C17
+SUMMARY:גביע המדינה סיבוב ח' מכבי ת"א- הפועל חיפה
+CREATED:20251206T151417Z
+DTSTAMP:20251206T151417Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גביע-המדינה-סיבוב-ח-מכבי-ת-א-הפועל-חיפה
+LAST-MODIFIED:20260113T122054Z
+SEQUENCE:3272797
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:7
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212%20730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260131T183000
+DTEND;TZID=Asia/Jerusalem:20260131T203000
+UID:CAA31360-17E3-4578-B5DC-594097B63671
+SUMMARY:הפועל תל אביב - מכבי נתניה מחזור II
+CREATED:20260128T081155Z
+DTSTAMP:20260128T081155Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-תל-אביב-מכבי-נתניה
+DESCRIPTION:אפשר להכניס את תיאור האירוע
+X-ALT-DESC;FMTTYPE=text/html:<p>אפשר להכניס את תיאור האירוע</p>
+LAST-MODIFIED:20260128T081818Z
+SEQUENCE:383
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/facilities/blumfield/tn_blumfield-home-top-image.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/facilities/blumfield/20240518 1876392.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260203T230000
+DTEND;TZID=Asia/Jerusalem:20260204T000000
+UID:BD1B9526-4584-4497-A590-C1D93F0C93C2
+SUMMARY:יורוליג מכבי ת"א- פרטיזן בלגרד
+CREATED:20260127T182950Z
+DTSTAMP:20260127T182950Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/יורוליג-מכבי-ת-א-פרטיזן-בלגרד
+DESCRIPTION:מפגש פסגה בין שתי ענקיות הכדורסל
+X-ALT-DESC;FMTTYPE=text/html:<p>מפגש פסגה בין שתי ענקיות הכדורסל</p>
+LAST-MODIFIED:20260128T053901Z
+SEQUENCE:40151
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:3
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730821.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260212T090000
+DTEND;TZID=Asia/Jerusalem:20260212T100000
+UID:6F6B18AF-6849-4250-8840-D68BD987346B
+SUMMARY:מכבי ת"א- עירוני נס ציונה
+CREATED:20260212T073735Z
+DTSTAMP:20260212T073735Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-עירוני-נס-ציונה
+LAST-MODIFIED:20260212T073735Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730821.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260221T170000
+DTEND;TZID=Asia/Jerusalem:20260221T180000
+UID:9AFA64EC-B77B-4CA0-AADA-4D2CCF26AF80
+SUMMARY:מכבי ת"א- מ.ס. אשדוד
+CREATED:20260212T073558Z
+DTSTAMP:20260212T073558Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-מ-ס-אשדוד
+LAST-MODIFIED:20260212T073558Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260329T150000
+DTEND;TZID=Asia/Jerusalem:20260329T160000
+UID:5074476B-3FF1-47A5-9D84-CF683ECD1327
+SUMMARY:אישה יפה
+CREATED:20260217T125216Z
+DTSTAMP:20260217T125216Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/אישה-יפה
+LAST-MODIFIED:20260321T210756Z
+SEQUENCE:2794540
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260330T150000
+DTEND;TZID=Asia/Jerusalem:20260330T160000
+UID:DDF15392-1182-47FE-8A4A-0E53E8AE8DEC
+SUMMARY:אישה יפה
+CREATED:20260217T125216Z
+DTSTAMP:20260217T125216Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/אישה-יפה-2
+LAST-MODIFIED:20260321T210807Z
+SEQUENCE:2794551
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260331T150000
+DTEND;TZID=Asia/Jerusalem:20260331T160000
+UID:BF37D0F2-AB5E-4584-A2A6-12D53EB1F56C
+SUMMARY:אישה יפה
+CREATED:20260217T125216Z
+DTSTAMP:20260217T125216Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/אישה-יפה-3
+LAST-MODIFIED:20260321T210820Z
+SEQUENCE:2794564
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260331T220000
+DTEND;TZID=Asia/Jerusalem:20260331T230000
+UID:F01B1B6B-E916-4B32-99DA-A2FF97A92D3C
+SUMMARY:גמר כדורעף 
+CREATED:20260329T131413Z
+DTSTAMP:20260329T131413Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-כדורעף
+DESCRIPTION:גמר הכדורעך הים 
+X-ALT-DESC;FMTTYPE=text/html:<p>גמר הכדורעך הים&nbsp;</p>
+LAST-MODIFIED:20260329T131642Z
+SEQUENCE:149
+LOCATION:Shitrit\, 5259408 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.10539400;34.82405090
+X-LOCATION-DISPLAYNAME:הוולודרום הלאומי 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260401T150000
+DTEND;TZID=Asia/Jerusalem:20260401T160000
+UID:BDC96DE9-4118-4A77-A52F-41E20AB61B42
+SUMMARY:אישה יפה
+CREATED:20260217T125216Z
+DTSTAMP:20260217T125216Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/אישה-יפה-4
+LAST-MODIFIED:20260321T210831Z
+SEQUENCE:2794575
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2026/march/preaty-woman.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260402T230000
+DTEND;TZID=Asia/Jerusalem:20260403T000000
+UID:5C8FEF72-CF49-4985-B787-01112F751A88
+SUMMARY:יורוליג מחזור 35 הפועל ת"א- פנאתנייקוס
+CREATED:20260325T132230Z
+DTSTAMP:20260325T132230Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/יורוליג-מחזור-35-הפועל-ת-א-פנאתנייקוס
+LAST-MODIFIED:20260325T132230Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260403T180000
+DTEND;TZID=Asia/Jerusalem:20260403T190000
+UID:3DB2D0DF-4F34-4D91-8688-E847DE2851B5
+SUMMARY:לאומית מחזור 27 מכבי יפו-קריית ים
+CREATED:20260325T134652Z
+DTSTAMP:20260325T134652Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/לאומית-מחזור-27-מכבי-יפו-קריית-ים
+LAST-MODIFIED:20260325T134652Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260403T180000
+DTEND;TZID=Asia/Jerusalem:20260403T190000
+UID:67FBFA4F-D8B9-4DA8-B8BF-7C0BEAB63D69
+SUMMARY:בני יהודה-הפועל רעננה
+CREATED:20260325T135540Z
+DTSTAMP:20260325T135540Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-הפועל-רעננה
+LAST-MODIFIED:20260325T135540Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260406T233000
+DTEND;TZID=Asia/Jerusalem:20260407T003000
+UID:40F98D69-4FED-413B-8730-39B7E51C2149
+SUMMARY:ליגת העל מחזור 25 הפועל ת"א-מכבי חיפה
+CREATED:20260325T134815Z
+DTSTAMP:20260325T134815Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/ליגת-העל-מחזור-25-הפועל-ת-א-מכבי-חיפה
+LAST-MODIFIED:20260325T134815Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260407T170000
+DTEND;TZID=Asia/Jerusalem:20260407T180000
+UID:0C54DE6C-D228-40A8-909F-33A485318E02
+SUMMARY:הפועל כפר שלם-הפועל ר"ג
+CREATED:20260325T135638Z
+DTSTAMP:20260325T135638Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-הפועל-ר-ג
+LAST-MODIFIED:20260325T135638Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260409T230000
+DTEND;TZID=Asia/Jerusalem:20260410T010000
+UID:2D665D26-ABE7-45F3-9010-B2D0BEB03337
+SUMMARY:יורוליג מחזור 37 הפועל ת"א- אולימפיאקוס
+CREATED:20260325T132941Z
+DTSTAMP:20260325T132941Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/יורוליג-מחזור-37-הפועל-ת-א-אולימפיאקוס
+LAST-MODIFIED:20260325T132941Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260410T180000
+DTEND;TZID=Asia/Jerusalem:20260410T190000
+UID:3C222695-239A-4C6D-86F3-34F0F73C00E4
+SUMMARY:הפועל כפר שלם-הפועל חדרה
+CREATED:20260325T135741Z
+DTSTAMP:20260325T135741Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-הפועל-חדרה
+LAST-MODIFIED:20260325T135741Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260412T233000
+DTEND;TZID=Asia/Jerusalem:20260413T003000
+UID:0C391A39-E5A0-4E78-B53D-994AE469EFB9
+SUMMARY:ליגת העל מחזור 26 מכבי ת"א- הפועל ב"ש
+CREATED:20260325T134935Z
+DTSTAMP:20260325T134935Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/ליגת-העל-מחזור-26-מכבי-ת-א-הפועל-ב-ש
+LAST-MODIFIED:20260325T134935Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260414T233000
+DTEND;TZID=Asia/Jerusalem:20260415T003000
+UID:18C7AB20-36A1-4A0C-9339-783013832AA2
+SUMMARY:לאומית מחזור 29 מכבי יפו-ראשל"צ
+CREATED:20260325T135214Z
+DTSTAMP:20260325T135214Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/לאומית-מחזור-29-מכבי-יפו-ראשל-צ
+LAST-MODIFIED:20260325T135214Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260417T000000
+DTEND;TZID=Asia/Jerusalem:20260417T020000
+UID:832D21C7-5ED6-41BF-8320-7F64879636F6
+SUMMARY:יורוליג מחזור 37 מכבי ת"א- בולוניה
+CREATED:20260325T133304Z
+DTSTAMP:20260325T133304Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/יורוליג-מחזור-37-מכבי-ת-א-בולוניה
+LAST-MODIFIED:20260325T133304Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260417T180000
+DTEND;TZID=Asia/Jerusalem:20260417T190000
+UID:AC401578-6B92-4923-97EB-4123579EC9AB
+SUMMARY:הפועל כפר שלם-מכבי יפו
+CREATED:20260325T135855Z
+DTSTAMP:20260325T135855Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-מכבי-יפו
+LAST-MODIFIED:20260405T200245Z
+SEQUENCE:972230
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-FULL:https://www.sportpalace.co.il/images/events/2026/april/Hatikva-kfarshalom-yafo.png
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2026/april/Hatikva-kfarshalom-yafo.png
+X-SHOW-END-TIME:0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260428T233000
+DTEND;TZID=Asia/Jerusalem:20260429T020000
+UID:BEB01AB4-8E51-4721-A7C2-F0C2C21B7090
+SUMMARY:מכבי ת"א- הפועל באר שבע
+CREATED:20260212T073558Z
+DTSTAMP:20260212T073558Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-מ-ס-אשדוד-2
+LAST-MODIFIED:20260424T151307Z
+SEQUENCE:6161829
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260429T223000
+DTEND;TZID=Asia/Jerusalem:20260430T010000
+UID:FC4C166C-86C6-4E68-ADD6-C398F0A29E65
+SUMMARY:מכבי ת"א- מכבי חיפה
+CREATED:20260212T073558Z
+DTSTAMP:20260212T073558Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-מ-ס-אשדוד-3
+LAST-MODIFIED:20260424T151350Z
+SEQUENCE:6161872
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-IMAGE-INTRO:https://www.sportpalace.co.il/images/events/2025/Dec/20220212 730269.jpg
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260506T223000
+DTEND;TZID=Asia/Jerusalem:20260507T020000
+UID:9E36839E-8F00-442B-BA08-D1022FEDAA08
+SUMMARY:הפועל ת"א- בית"ר ירושלים
+CREATED:20260504T194701Z
+DTSTAMP:20260504T194701Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/cancel-at-period-end
+LAST-MODIFIED:20260504T194718Z
+SEQUENCE:17
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260509T233000
+DTEND;TZID=Asia/Jerusalem:20260510T023000
+UID:CC47293D-1973-4994-B056-FB9BA1851B4A
+SUMMARY:הפועל ת"א- מכבי ת"א
+CREATED:20260504T194804Z
+DTSTAMP:20260504T194804Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-ת-א
+LAST-MODIFIED:20260504T194804Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260512T000000
+DTEND;TZID=Asia/Jerusalem:20260512T010000
+UID:B5AFF7B0-F7FA-493B-83BE-8B5BD6163823
+SUMMARY:מכבי ת"א- עירוני קריית אתא
+CREATED:20260504T194913Z
+DTSTAMP:20260504T194913Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-עירוני-קריית-אתא
+LAST-MODIFIED:20260504T194913Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260512T230000
+DTEND;TZID=Asia/Jerusalem:20260513T023000
+UID:1BF737DD-0509-4648-ACCE-7F04CB0CA210
+SUMMARY:הפועל ת"א- הפועל פ"ת
+CREATED:20260504T194951Z
+DTSTAMP:20260504T194951Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-הפועל-פ-ת
+LAST-MODIFIED:20260505T110751Z
+SEQUENCE:55080
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260514T000000
+DTEND;TZID=Asia/Jerusalem:20260514T010000
+UID:2328E2D5-DB8C-466F-8434-A426E368934A
+SUMMARY:מכבי ת"א- מכבי חיפה 
+CREATED:20260510T105651Z
+DTSTAMP:20260510T105651Z
+URL:https://www.leaan.co.il/category/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C/%D7%9E%D7%9B%D7%91%D7%99-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91
+LAST-MODIFIED:20260513T092644Z
+SEQUENCE:253793
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260515T190000
+DTEND;TZID=Asia/Jerusalem:20260515T200000
+UID:C18E1329-3212-4FE7-9AAA-509F77100338
+SUMMARY:הפועל ת"א-הפועל ב"ש
+CREATED:20260510T105850Z
+DTSTAMP:20260510T105850Z
+URL:https://www.leaan.co.il/category/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C/%D7%94%D7%A4%D7%95%D7%A2%D7%9C-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91
+LAST-MODIFIED:20260510T105850Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260516T233000
+DTEND;TZID=Asia/Jerusalem:20260517T003000
+UID:0F9F83F4-CE01-4712-8851-B96E326DA3AC
+SUMMARY:מכבי ת"א- בית"ר ירושלים
+CREATED:20260510T110017Z
+DTSTAMP:20260510T110017Z
+URL:https://www.leaan.co.il/category/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C/%D7%9E%D7%9B%D7%91%D7%99-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91
+LAST-MODIFIED:20260510T110017Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260517T000000
+DTEND;TZID=Asia/Jerusalem:20260517T010000
+UID:398D59AA-A5DA-4FE9-A6B9-DA3780BEC835
+SUMMARY:הפועל ת"א-בני הרצליה
+CREATED:20260510T122208Z
+DTSTAMP:20260510T122208Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-בני-הרצליה
+LAST-MODIFIED:20260510T122208Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260519T220000
+DTEND;TZID=Asia/Jerusalem:20260519T230000
+UID:F5F4B096-EFA2-4FBA-B4C2-52E81F8D5447
+SUMMARY:מכבי יפו- הפועל עירוני עפולה
+CREATED:20260510T110216Z
+DTSTAMP:20260510T110216Z
+URL:https://www.leaan.co.il/category/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C/%D7%9E%D7%9B%D7%91%D7%99-%D7%99%D7%A4%D7%95
+LAST-MODIFIED:20260510T110216Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260520T214500
+DTEND;TZID=Asia/Jerusalem:20260520T224500
+UID:EF04E743-FCC5-4FDC-9B81-FBDA6A3B33B2
+SUMMARY:הפועל כפר שלם-מ.ס קרית ים
+CREATED:20260510T110414Z
+DTSTAMP:20260510T110414Z
+URL:https://tickets.leaan.net/seller/--z0vh
+LAST-MODIFIED:20260510T122101Z
+SEQUENCE:4607
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260601T235500
+DTEND;TZID=Asia/Jerusalem:20260602T005500
+UID:5EEBD3E8-74E8-43B5-97C9-0502B7D79AAB
+SUMMARY:רבע גמר 1 מכבי ת"א-הפועל ב"ש
+CREATED:20260531T112552Z
+DTSTAMP:20260531T112552Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/רבע-גמר-1-מכבי-ת-א-הפועל-ב-ש
+LAST-MODIFIED:20260531T112552Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260604T205500
+DTEND;TZID=Asia/Jerusalem:20260604T215500
+UID:9001AE9E-9FF7-496D-8956-5E0FB070755B
+SUMMARY:רבע גמר פלייאוף משחק 3 הפועל ת"א- מכבי ראשל"צ
+CREATED:20260603T081958Z
+DTSTAMP:20260603T081958Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/רבע-גמר-פלייאוף-משחק-3-הפועל-ת-א-מכבי-ראשל-צ
+LAST-MODIFIED:20260603T081958Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260616T205000
+DTEND;TZID=Asia/Jerusalem:20260616T215000
+UID:40902F34-D2AA-443F-B794-160ABFBF9E58
+SUMMARY:גמר ליגת ווינר סל משחק 1 מכבי ת"א-הפועל ת"א
+CREATED:20260614T104537Z
+DTSTAMP:20260614T104537Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-ליגת-ווינר-סל-משחק-1-מכבי-ת-א-הפועל-ת-א
+LAST-MODIFIED:20260614T104537Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260618T205000
+DTEND;TZID=Asia/Jerusalem:20260618T215000
+UID:B1E17742-F83E-4288-9C72-F89C5CFD4D8C
+SUMMARY:גמר ליגת ווינר סל משחק 2 הפועל ת"א-מכבי ת"א
+CREATED:20260614T104640Z
+DTSTAMP:20260614T104640Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-ליגת-ווינר-סל-משחק-2-הפועל-ת-א-מכבי-ת-א
+LAST-MODIFIED:20260614T104640Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260621T205000
+DTEND;TZID=Asia/Jerusalem:20260621T215000
+UID:D74D4896-D9D7-4A37-8251-126F30E702E5
+SUMMARY:גמר ליגת ווינר סל משחק 3 מכבי ת"א-הפועל ת"א
+CREATED:20260614T104727Z
+DTSTAMP:20260614T104727Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-ליגת-ווינר-סל-משחק-3-מכבי-ת-א-הפועל-ת-א
+LAST-MODIFIED:20260614T104727Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260623T205000
+DTEND;TZID=Asia/Jerusalem:20260623T215000
+UID:AE8BBE41-5941-4098-9EBA-E9D99FA17820
+SUMMARY:הפועל ת"א-מכבי ת"א סדרת גמר
+CREATED:20260622T064015Z
+DTSTAMP:20260622T064015Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-ת-א-סדרת-גמר
+LAST-MODIFIED:20260622T064015Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260730T200000
+DTEND;TZID=Asia/Jerusalem:20260730T210000
+UID:08B57FB6-6412-497F-8CA7-8E04D95E094F
+SUMMARY:גביע הטוטו בני יהודה- עירוני מודיעין (מחזור 1 )
+CREATED:20260621T070725Z
+DTSTAMP:20260621T070725Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גביע-הטוטו-בני-יהודה-עירוני-מודיעין-מחזור-1
+LAST-MODIFIED:20260621T070725Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260803T200000
+DTEND;TZID=Asia/Jerusalem:20260803T210000
+UID:1F8157AF-4F72-4310-B34C-178FB765869F
+SUMMARY:גביע הטוטו הפועל כפר שלם- עירוני מודיעין (מחזור 2 )
+CREATED:20260621T070829Z
+DTSTAMP:20260621T070829Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גביע-הטוטו-הפועל-כפר-שלם-עירוני-מודיעין-מחזור-2
+LAST-MODIFIED:20260621T070829Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260806T200000
+DTEND;TZID=Asia/Jerusalem:20260806T210000
+UID:EE575FCB-D165-4E10-B82E-62C577E62D5D
+SUMMARY:גביע הטוטו בני יהודה- הפועל כפר שלם (מחזור 3 )
+CREATED:20260621T071009Z
+DTSTAMP:20260621T071009Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גביע-הטוטו-בני-יהודה-הפועל-כפר-שלם-מחזור-3
+LAST-MODIFIED:20260621T071009Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260818T193000
+DTEND;TZID=Asia/Jerusalem:20260818T203000
+UID:F66DE019-59B2-4D6D-AC26-09218491CBBC
+SUMMARY:הפועל כפר שלם-מ.ס כפר קאסם
+CREATED:20260805T083322Z
+DTSTAMP:20260805T083322Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-מ-ס-כפר-קאסם
+LAST-MODIFIED:20260805T083322Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260818T210000
+DTEND;TZID=Asia/Jerusalem:20260818T220000
+UID:DAAB22EA-BFC5-4B36-B5A9-F39031957675
+SUMMARY:עדן בן זקן
+CREATED:20260702T094027Z
+DTSTAMP:20260702T094027Z
+URL:https://www.kupat.co.il/show/edenbenzaken
+LAST-MODIFIED:20260702T094027Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260823T190000
+DTEND;TZID=Asia/Jerusalem:20260823T200000
+UID:1CEEAD77-77C4-4289-8723-88BF7337C8CE
+SUMMARY:בני יהודה-הפועל כפר שלם
+CREATED:20260805T084157Z
+DTSTAMP:20260805T084157Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-הפועל-כפר-שלם
+LAST-MODIFIED:20260805T084157Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260828T130000
+DTEND;TZID=Asia/Jerusalem:20260828T140000
+UID:96C9AA4B-D2BE-455D-B200-5CEFECA2E86E
+SUMMARY:אודיה 
+CREATED:20260816T083133Z
+DTSTAMP:20260816T083133Z
+URL:https://www.ticketmaster.co.il/event/MMM31/ALL/iw
+LAST-MODIFIED:20260816T083133Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260829T203000
+DTEND;TZID=Asia/Jerusalem:20260829T213000
+UID:04AAEA68-A7C0-4473-B5D1-F7644134EF9F
+SUMMARY:בית"ר ירושלים- מכבי מתניה
+CREATED:20260816T082552Z
+DTSTAMP:20260816T082552Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בית-ר-ירושלים-מכבי-מתניה
+LAST-MODIFIED:20260816T082552Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260829T210000
+DTEND;TZID=Asia/Jerusalem:20260829T220000
+UID:7F35F6C9-A956-4026-AB36-DD2823732258
+SUMMARY:אודיה 
+CREATED:20260816T083206Z
+DTSTAMP:20260816T083206Z
+URL:https://www.ticketmaster.co.il/event/MMM31/ALL/iw
+LAST-MODIFIED:20260816T083206Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260830T190000
+DTEND;TZID=Asia/Jerusalem:20260830T200000
+UID:EBDA0666-1E0E-4AE4-87C1-611FF8172412
+SUMMARY:הפועל כפר שלם-מ.ס קרית ים
+CREATED:20260805T084247Z
+DTSTAMP:20260805T084247Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-מ-ס-קרית-ים-2
+LAST-MODIFIED:20260805T084443Z
+SEQUENCE:116
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260831T203000
+DTEND;TZID=Asia/Jerusalem:20260831T213000
+UID:479C02B6-6408-4C3C-8DA8-19026C9D3C22
+SUMMARY:מכבי ת"א-מכבי חיפה
+CREATED:20260816T082631Z
+DTSTAMP:20260816T082631Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-מכבי-חיפה-2
+LAST-MODIFIED:20260816T082631Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260903T203000
+DTEND;TZID=Asia/Jerusalem:20260903T213000
+UID:F3768DDD-EAAB-4240-8E6C-414160395A0E
+SUMMARY:הפועל ת"א-בית"ר ירושלים
+CREATED:20260816T082818Z
+DTSTAMP:20260816T082818Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-בית-ר-ירושלים
+LAST-MODIFIED:20260816T082818Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260907T190000
+DTEND;TZID=Asia/Jerusalem:20260907T200000
+UID:437B3499-060D-404F-8995-2AA29D284772
+SUMMARY:בני יהודה-הפועל ראשל"צ
+CREATED:20260819T115950Z
+DTSTAMP:20260819T115950Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-הפועל-ראשל-צ
+LAST-MODIFIED:20260819T115950Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260907T200000
+DTEND;TZID=Asia/Jerusalem:20260907T210000
+UID:200A9A1E-97EE-4591-9689-8239FA18955E
+SUMMARY:הפועל ת"א- הפועל ר"ג
+CREATED:20260826T082157Z
+DTSTAMP:20260826T082157Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-הפועל-ר-ג
+LAST-MODIFIED:20260826T082157Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260910T190000
+DTEND;TZID=Asia/Jerusalem:20260910T200000
+UID:40E76784-DFC6-4FB7-80FE-6FC53D99F691
+SUMMARY:הפועל כפר שלם-מכבי אחי נצרת
+CREATED:20260819T120046Z
+DTSTAMP:20260819T120046Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-מכבי-אחי-נצרת
+LAST-MODIFIED:20260819T120046Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260914T203000
+DTEND;TZID=Asia/Jerusalem:20260914T213000
+UID:F8AD374C-FF14-4154-B494-0F068889F7F1
+SUMMARY:מכבי ת"א- הפועל ת"א
+CREATED:20260902T131255Z
+DTSTAMP:20260902T131255Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-הפועל-ת-א
+LAST-MODIFIED:20260902T131255Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260915T200000
+DTEND;TZID=Asia/Jerusalem:20260915T210000
+UID:CF034146-7A6F-46AA-A680-3E2D6F19C3B0
+SUMMARY:בית"ר ירושלים- מכבי פ"ת
+CREATED:20260902T131344Z
+DTSTAMP:20260902T131344Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בית-ר-ירושלים-מכבי-פ-ת
+LAST-MODIFIED:20260902T131344Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260917T190000
+DTEND;TZID=Asia/Jerusalem:20260917T200000
+UID:EF3B25B3-21A8-45C9-B5C1-1D4F9BD3E330
+SUMMARY:בני יהודה-מכבי הרצליה
+CREATED:20260819T120138Z
+DTSTAMP:20260819T120138Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-מכבי-הרצליה
+LAST-MODIFIED:20260819T120138Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260917T205500
+DTEND;TZID=Asia/Jerusalem:20260917T215500
+UID:B79E2F3B-33B2-41C8-BFA1-6D8A5C7BEAF4
+SUMMARY:סופרקאפ מכבי ת"א-הפועל ת"א
+CREATED:20260805T085055Z
+DTSTAMP:20260805T085055Z
+URL:https://www.leaan.co.il/special-events/%D7%A1%D7%95%D7%A4%D7%A8-%D7%A7%D7%90%D7%A4---%D7%94%D7%A1%D7%95%D7%A4%D7%A8-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99-262F27/6722
+LAST-MODIFIED:20260805T085055Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260918T154500
+DTEND;TZID=Asia/Jerusalem:20260918T164500
+UID:BC2DBDD5-0DF0-4768-BE1E-F6CD8C249007
+SUMMARY:הפועל ת"א- הפועל פ"ת 
+CREATED:20260902T131440Z
+DTSTAMP:20260902T131440Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-הפועל-פ-ת-5
+LAST-MODIFIED:20260902T131440Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20260919T203000
+DTEND;TZID=Asia/Jerusalem:20260919T213000
+UID:3A46EFD5-99ED-46F0-9AC1-FBEDE1888C38
+SUMMARY:בית"ר ירושלים- הפועל חיפה
+CREATED:20260902T131522Z
+DTSTAMP:20260902T131522Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בית-ר-ירושלים-הפועל-חיפה
+LAST-MODIFIED:20260902T131522Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261001T190000
+DTEND;TZID=Asia/Jerusalem:20261001T200000
+UID:0F45A72B-E350-4A5E-A3ED-B372BC0FC92A
+SUMMARY:בני יהודה-מכבי קריית גת
+CREATED:20260923T093837Z
+DTSTAMP:20260923T093837Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-מכבי-קריית-גת
+LAST-MODIFIED:20260923T115656Z
+SEQUENCE:8299
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261010T193000
+DTEND;TZID=Asia/Jerusalem:20261010T203000
+UID:62E52298-C3F1-4AB8-BB5C-5BFB60C065E3
+SUMMARY:מכבי ת"א- בני סכנין
+CREATED:20260923T092850Z
+DTSTAMP:20260923T092850Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-בני-סכנין
+LAST-MODIFIED:20260923T092850Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261010T201500
+DTEND;TZID=Asia/Jerusalem:20261010T211500
+UID:4F840A97-D66A-41BC-BD30-6B1AD28F6934
+SUMMARY:מכבי ת"א- הפועל גליל עליון
+CREATED:20260914T115201Z
+DTSTAMP:20260914T115201Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-הפועל-גליל-עליון
+LAST-MODIFIED:20260914T115201Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261012T190000
+DTEND;TZID=Asia/Jerusalem:20261012T200000
+UID:1972A364-A4D8-4EF0-ABBF-6A496FF09B0E
+SUMMARY:הפועל כפר שלם-הפועל רעננה
+CREATED:20260923T093940Z
+DTSTAMP:20260923T093940Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-הפועל-רעננה
+LAST-MODIFIED:20260923T093940Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261017T184500
+DTEND;TZID=Asia/Jerusalem:20261017T194500
+UID:6154C526-E6C1-4EC1-B2CC-D2F2CFB88C2E
+SUMMARY:הפועל ת"א- עירוני טבריה
+CREATED:20260923T093002Z
+DTSTAMP:20260923T093002Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-עירוני-טבריה
+LAST-MODIFIED:20260923T093002Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261018T183000
+DTEND;TZID=Asia/Jerusalem:20261018T193000
+UID:AA27B4A1-6C31-44EE-A69B-C374C94828BA
+SUMMARY:הפועל ת"א-מכבי אשדוד
+CREATED:20260914T115251Z
+DTSTAMP:20260914T115251Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-אשדוד
+LAST-MODIFIED:20260922T124447Z
+SEQUENCE:694316
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261018T205500
+DTEND;TZID=Asia/Jerusalem:20261018T215500
+UID:0641562F-119A-4C67-90E2-75EA9734D051
+SUMMARY:מכבי ת"א-עירוני קריית אתא
+CREATED:20260914T115354Z
+DTSTAMP:20260914T115354Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-עירוני-קריית-אתא-2
+LAST-MODIFIED:20260914T115354Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261019T190000
+DTEND;TZID=Asia/Jerusalem:20261019T200000
+UID:98B41CA9-15B0-4795-B846-F010FB5799C6
+SUMMARY:הפועל כפר שלם-הפועל עכו
+CREATED:20260923T094046Z
+DTSTAMP:20260923T094046Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-כפר-שלם-הפועל-עכו
+LAST-MODIFIED:20260923T094046Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261022T210000
+DTEND;TZID=Asia/Jerusalem:20261022T220000
+UID:831302B3-EB91-4E14-8D75-A43F0F234EBF
+SUMMARY:דודו אהרון
+CREATED:20260923T091131Z
+DTSTAMP:20260923T091131Z
+URL:https://www.kupat.co.il/dudu_aharon
+LAST-MODIFIED:20260923T091131Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261023T160000
+DTEND;TZID=Asia/Jerusalem:20261023T170000
+UID:76F14B39-D9F5-46AD-96A1-215C8D1651E8
+SUMMARY:בני יהודה-מ.ס. קרית ים
+CREATED:20260923T094145Z
+DTSTAMP:20260923T094145Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/בני-יהודה-מ-ס-קרית-ים
+LAST-MODIFIED:20260923T094145Z
+SEQUENCE:0
+LOCATION:Kabir 8א\, 6775393 Tel-Aviv\, Tel-Aviv District\, Israel
+GEO:32.04988480;34.78703300
+X-LOCATION-DISPLAYNAME:אצטדיון עירוני התקווה
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261024T193000
+DTEND;TZID=Asia/Jerusalem:20261024T203000
+UID:33482530-D6CA-4B47-96C4-E94B9EF06F4F
+SUMMARY:מכבי ת"א-הפועל חיפה
+CREATED:20260923T093104Z
+DTSTAMP:20260923T093104Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-הפועל-חיפה-2
+LAST-MODIFIED:20260923T093104Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261025T205500
+DTEND;TZID=Asia/Jerusalem:20261025T215500
+UID:F6C8A24E-1777-44CB-8089-7BD0B8C9DE80
+SUMMARY:הפועל ת"א-הפועל ירושלים
+CREATED:20260914T115501Z
+DTSTAMP:20260914T115501Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-הפועל-ירושלים
+LAST-MODIFIED:20260923T091008Z
+SEQUENCE:767707
+LOCATION:2410\, 6997801 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.10916640;34.81085760
+X-LOCATION-DISPLAYNAME:היכל קבוצת שלמה 
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Jerusalem:20261029T203000
+DTEND;TZID=Asia/Jerusalem:20261029T213000
+UID:C3EA0B2D-025A-4237-BB76-BA78EC5E99E2
+SUMMARY:גמר גביע טוטו הפועל ת"א- מכבי ת"א
+CREATED:20260923T093201Z
+DTSTAMP:20260923T093201Z
+URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-גביע-טוטו-הפועל-ת-א-מכבי-ת-א
+LAST-MODIFIED:20260923T093201Z
+SEQUENCE:0
+LOCATION:HaTkuma\, 6811156 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.05183690;34.76157710
+X-LOCATION-DISPLAYNAME:אצטדיון בלומפילד
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261204
+UID:39CB2A35-975A-4F04-8231-2D67C2FF88CD
+SUMMARY:היסטריה
+CREATED:20260914T120732Z
+DTSTAMP:20260914T120732Z
+URL:https://www.kupat.co.il/hysteria
+LAST-MODIFIED:20260914T120732Z
+SEQUENCE:0
+LOCATION:HaShlosha\, 6777517 Tel Aviv\, Tel-Aviv District\, Israel
+GEO:32.06204650;34.79045450
+X-LOCATION-DISPLAYNAME:היכל מנורה מבטחים
+X-ACCESS:1
+X-HITS:0
+X-COLOR:3366cc
+X-SHOW-END-TIME:1
+END:VEVENT
+END:VCALENDAR
