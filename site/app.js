@@ -98,8 +98,64 @@ function renderFooter(data) {
   );
 }
 
-// Task 9 replaces this with the month calendar.
-export function renderCalendar() {}
+function shiftMonth(month, delta) {
+  const [y, m] = month.split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 1 + delta, 1));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+function monthDays(month) {
+  const [y, m] = month.split('-').map(Number);
+  const first = new Date(Date.UTC(y, m - 1, 1));
+  const count = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const blanks = first.getUTCDay(); // weeks start on Sunday
+  const days = Array.from({ length: count }, (_, i) => `${month}-${String(i + 1).padStart(2, '0')}`);
+  return { blanks, days };
+}
+
+export function renderCalendar() {
+  const locale = t('locale');
+  const [y, m] = state.month.split('-').map(Number);
+  const title = new Date(Date.UTC(y, m - 1, 15)).toLocaleDateString(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const today = jerusalemDate(new Date());
+  const byDay = Map.groupBy(state.data.events, (e) => e.date);
+
+  const nav = el('div', { class: 'cal-nav' },
+    el('button', { type: 'button', 'aria-label': t('prevMonth'), 'data-shift': '-1' }, state.lang === 'he' ? '→' : '←'),
+    el('h2', {}, title),
+    el('button', { type: 'button', 'aria-label': t('nextMonth'), 'data-shift': '1' }, state.lang === 'he' ? '←' : '→'),
+  );
+
+  const weekdayNames = Array.from({ length: 7 }, (_, i) =>
+    new Date(Date.UTC(2026, 9, 4 + i, 12)).toLocaleDateString(locale, { weekday: 'short', timeZone: 'UTC' }));
+  const { blanks, days } = monthDays(state.month);
+
+  const grid = el('ol', { class: 'cal-grid' },
+    ...weekdayNames.map((n) => el('li', { class: 'cal-head', 'aria-hidden': 'true' }, n)),
+    ...Array.from({ length: blanks }, () => el('li', { class: 'cal-blank', 'aria-hidden': 'true' })),
+    ...days.map((date) => {
+      const events = byDay.get(date) ?? [];
+      const classes = ['cal-day'];
+      if (date === today) classes.push('is-today');
+      if (date < today) classes.push('is-past');
+      if (events.some((e) => e.status === 'confirmed')) classes.push('has-confirmed');
+      else if (events.length) classes.push('has-tentative');
+      return el('li', { class: classes.join(' ') },
+        el('span', { class: 'cal-num' }, String(Number(date.slice(8)))),
+        ...events.map((e) => el('div', { class: `cal-event ${e.status}` },
+          `${t(e.kind)} `, ...eventLine(e), e.status === 'tentative' ? el('span', { class: 'cal-tag' }, t('tentative')) : null)),
+      );
+    }),
+  );
+
+  const section = document.getElementById('calendar');
+  section.replaceChildren(nav, grid);
+  section.querySelectorAll('[data-shift]').forEach((b) =>
+    b.addEventListener('click', () => {
+      state.month = shiftMonth(state.month, Number(b.dataset.shift));
+      renderCalendar();
+    }));
+}
 
 export function render() {
   renderChrome();

@@ -28,3 +28,18 @@ button { font: inherit; background: var(--card); color: var(--fg); border: 1px s
 .next .what { font-weight: 600; }
 footer { color: var(--muted); font-size: .85rem; padding-block: 24px; }
 footer a { color: inherit; }
+.calendar { margin-top: 20px; }
+.cal-nav { display: flex; justify-content: space-between; align-items: center; }
+.cal-nav h2 { font-size: 1.1rem; margin: 0; }
+.cal-grid { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; }
+.cal-head { text-align: center; font-size: .75rem; color: var(--muted); }
+.cal-day { background: var(--card); border: 1px solid var(--line); border-radius: 6px; min-height: 3.2rem; padding: 2px 3px; font-size: .68rem; overflow-wrap: anywhere; }
+.cal-day.is-past { opacity: .6; }
+.cal-day.is-today { outline: 2px solid var(--fg); }
+.cal-day.has-confirmed { border-color: var(--confirmed); border-width: 2px; }
+.cal-day.has-tentative { border-style: dashed; border-color: var(--tentative); }
+.cal-num { font-weight: 700; font-size: .8rem; }
+.cal-event { margin-top: 2px; }
+.cal-event.confirmed { color: var(--confirmed); font-weight: 600; }
+.cal-event.tentative { color: var(--tentative); font-style: italic; }
+.cal-tag { display: inline-block; margin-inline-start: 3px; padding: 0 4px; border: 1px dashed var(--tentative); border-radius: 4px; font-style: normal; }
