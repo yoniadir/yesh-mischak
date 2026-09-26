@@ -26,10 +26,16 @@ confirmed event today (game or not), **off** when there is none.
   seating bowl with a walkway ring, partial roof over the west stand, faceted white shell
   on a lit concourse, floodlights under the trusses.
 - Generated, not hand-typed: `tools/stadium.py` (stdlib only) models the stadium in metres,
-  projects it with an elevated camera and mild perspective, samples it onto a pixel grid
-  (about 118×106) and inlines the SVG into `site/index.html` between
-  `<!-- stadium:start -->` / `<!-- stadium:end -->`. `--check` fails if the inlined copy is
-  stale; `tests/test_stadium_art.py` runs it.
+  projects it with an elevated camera and mild perspective and samples it onto a pixel grid
+  (about 118×106). It writes three things: `site/stadium.svg` (the art, as `<symbol id="art">`),
+  the `<svg><use href="stadium.svg#art"/></svg>` snippet in `site/index.html`, and the colour
+  block in `site/styles.css` (each between `stadium:start` / `stadium:end` markers).
+  `--check` fails if any is stale; `tests/test_stadium_art.py` runs it.
+- A separate, cacheable SVG file keeps index.html small. Colours are CSS custom
+  properties (`--st-<key>`) that inherit into the `<use>` shadow tree; each path's fallback
+  is its lights-off colour.
+- Floodlight beams: a translucent light layer on top — wedges from under each truss down
+  to the pitch, with a brighter core; fully transparent when the lights are off.
 - `shape-rendering="crispEdges"`; one `<path>` per colour; empty pixels are transparent.
 - Size: decorative, so it must never push the answer below the fold:
   `width: min(13rem, 42vw, 30vh)` (~160px on phones, 208px max, shrinks on short
@@ -37,11 +43,11 @@ confirmed event today (game or not), **off** when there is none.
 
 ## States
 
-- Every stadium colour has an off/on pair; the generator emits them as a `<style>` inside
-  the SVG keyed on `#stadium[data-lights="on"]`.
-- On: white roofs and arches, lit seats, bright pitch, glowing facade. Off: the whole
-  stadium goes dark.
-- `.stadium path { transition: fill .6s }`; no animation.
+- Every colour has an off/on pair, emitted as `--st-<key>` on `#stadium` and
+  `#stadium[data-lights="on"]`. The properties are registered with `@property` as
+  `<color>` so they fade over .6s.
+- On: white roofs and trusses, lit seats, bright pitch, glowing facade, beams onto the
+  pitch. Off: the whole stadium goes dark and the beams disappear.
 
 ## Testing
 

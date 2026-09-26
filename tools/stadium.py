@@ -1,12 +1,17 @@
-"""Generate the pixel-art Bloomfield Stadium and inline it into site/index.html.
+"""Generate the pixel-art Bloomfield Stadium as site/stadium.svg.
 
 The stadium is modelled in metres (x east, y north, z up, origin at the centre spot),
 projected from an elevated camera south of the ground looking north, and sampled onto a
-pixel grid. Every colour has an "off" and an "on" value; the page flips between them
-with `data-lights` on the #stadium figure.
+pixel grid. A second, translucent layer holds the floodlight beams.
 
-    uv run python tools/stadium.py           # rewrite site/index.html
-    uv run python tools/stadium.py --check   # exit 1 if index.html is out of date
+Every colour is a CSS custom property (`--st-<key>`) with an "off" and an "on" value. The
+page references the art with `<use href="stadium.svg#art">`; custom properties inherit
+into it, so `#stadium[data-lights]` in styles.css switches the lights. Besides the SVG,
+this writes the <use> snippet in index.html and the colour block in styles.css, each
+between `stadium:start` / `stadium:end` markers.
+
+    uv run python tools/stadium.py           # rewrite the three generated parts
+    uv run python tools/stadium.py --check   # exit 1 if any of them is out of date
 """
 import math
 import sys
@@ -25,10 +30,14 @@ LIT = {
     'runoff': ('#17281c', '#3e9a3a'), 'pitch1': ('#1f3526', '#6dcb4e'), 'pitch2': ('#1b2f21', '#5ab742'),
     'line': ('#2c4131', '#f0fae8'),
     'truss': ('#5d6373', '#ffffff'), 'truss2': ('#353a46', '#aab2c0'), 'flood': ('#353a46', '#fff3b0'),
+    # Floodlight beams (light layer): invisible when off.
+    'beam': ('rgb(255 244 190 / 0)', 'rgb(255 244 190 / .28)'),
+    'beam2': ('rgb(255 244 190 / 0)', 'rgb(255 250 215 / .5)'),
 }
 
 Point = tuple[float, float, float]
 Flat = list[tuple[float, float]]
+Grid = list[list[str | None]]
 
 
 def project(p: Point) -> tuple[float, float]:
@@ -63,24 +72,28 @@ def columns(gx, gy):
 class Scene:
     """Shapes in paint order: filled polygons and 1px lines, in projected coordinates."""
 
-    def __init__(self):
-        self.shapes: list[tuple[str, Flat, object]] = []
+    LAYERS = ('base', 'light')
 
-    def fill(self, pts: list[Point], key) -> None:
-        self.shapes.append(('fill', [project(p) for p in pts], key))
+    def __init__(self):
+        self.shapes: list[tuple[str, str, Flat, object]] = []
+
+    def fill(self, pts: list[Point], key, layer: str = 'base') -> None:
+        self.shapes.append((layer, 'fill', [project(p) for p in pts], key))
 
     def line(self, pts: list[Point], key, width: float = 1.1) -> None:
         flat = [project(p) for p in pts]
         for a, b in zip(flat, flat[1:]):
-            self.shapes.append(('line', [a, b], (key, width)))
+            self.shapes.append(('base', 'line', [a, b], (key, width)))
 
-    def rasterize(self) -> list[list[str | None]]:
-        xs = [x for _, pts, _ in self.shapes for x, _ in pts]
-        ys = [y for _, pts, _ in self.shapes for _, y in pts]
+    def rasterize(self) -> list[Grid]:
+        """One grid per layer, all the same size."""
+        xs = [x for *_, pts, _ in self.shapes for x, _ in pts]
+        ys = [y for *_, pts, _ in self.shapes for _, y in pts]
         x0, y0 = math.floor(min(xs)) - MARGIN, math.floor(min(ys)) - MARGIN
         w, h = math.ceil(max(xs)) + MARGIN - x0, math.ceil(max(ys)) + MARGIN - y0
-        grid: list[list[str | None]] = [[None] * w for _ in range(h)]
-        for kind, pts, key in self.shapes:
+        grids: dict[str, Grid] = {layer: [[None] * w for _ in range(h)] for layer in self.LAYERS}
+        for layer, kind, pts, key in self.shapes:
+            grid = grids[layer]
             pts = [(x - x0, y - y0) for x, y in pts]
             if kind == 'fill':
                 test = lambda x, y, pts=pts: in_poly(x, y, pts)
@@ -93,7 +106,7 @@ class Scene:
                 for gx in range(max(bx0, 0), min(bx1, w)):
                     if test(gx + 0.5, gy + 0.5):
                         grid[gy][gx] = key(gx, gy) if callable(key) else key
-        return grid
+        return [grids[layer] for layer in self.LAYERS]
 
 
 def in_poly(x: float, y: float, pts: Flat) -> bool:
@@ -171,48 +184,84 @@ def build() -> Scene:
             sc.fill([(x - 4, y, z), (x + 4, y, z), (x + 4, y, 22), (x - 4, y, 22)], 'truss')
         for px, py, pz in bottom[5:-5:6]:
             sc.line([(px, py, pz), (px, py, pz - 0.1)], 'flood', 1.8)
+
+    # Floodlight beams: wedges from under each truss down to the pitch, with a brighter core.
+    for x, aim in ((-54, -8), (54, 8)):
+        for y in (-39, -13, 13, 39):
+            z = 18 + 26 * (1 - (y / 94) ** 2)
+            sc.fill([(x, y - 1.5, z), (x, y + 1.5, z), (aim, y + 9, 0), (aim, y - 9, 0)], 'beam', 'light')
+            sc.fill([(x, y - 0.6, z), (x, y + 0.6, z), (aim, y + 3, 0), (aim, y - 3, 0)], 'beam2', 'light')
     return sc
 
 
-def to_svg(grid: list[list[str | None]]) -> str:
-    h, w = len(grid), len(grid[0])
+def paths(grid: Grid) -> list[str]:
     runs: dict[str, list[str]] = {}
     for gy, row in enumerate(grid):
         gx = 0
-        while gx < w:
+        while gx < len(row):
             key, start = row[gx], gx
-            while gx < w and row[gx] == key:
+            while gx < len(row) and row[gx] == key:
                 gx += 1
             if key:
                 runs.setdefault(key, []).append(f'M{start} {gy}h{gx - start}v1h-{gx - start}z')
-    style = ' '.join(
-        f'#stadium .k-{k}{{fill:{off}}} #stadium[data-lights="on"] .k-{k}{{fill:{on}}}'
-        for k, (off, on) in LIT.items())
-    paths = '\n'.join(f'        <path class="k-{k}" d="{"".join(d)}"/>' for k, d in runs.items())
+    # Colours come from the page; the fallback is the lights-off colour.
+    return [f'    <path style="fill:var(--st-{k},{LIT[k][0]})" d="{"".join(d)}"/>' for k, d in runs.items()]
+
+
+def to_svg(grids: list[Grid]) -> str:
+    h, w = len(grids[0]), len(grids[0][0])
+    body = '\n'.join(p for grid in grids for p in paths(grid))
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
+            f'shape-rendering="crispEdges">\n'
+            f'  <!-- Generated by tools/stadium.py; do not edit by hand. -->\n'
+            f'  <symbol id="art" viewBox="0 0 {w} {h}">\n{body}\n  </symbol>\n'
+            f'  <use href="#art"/>\n</svg>\n')
+
+
+def use_snippet(grids: list[Grid]) -> str:
+    h, w = len(grids[0]), len(grids[0][0])
     return (f'      <svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" shape-rendering="crispEdges" '
-            f'focusable="false" xmlns="http://www.w3.org/2000/svg">\n'
-            f'        <style>{style}</style>\n{paths}\n      </svg>\n')
+            f'focusable="false"><use href="stadium.svg#art"/></svg>\n')
 
 
-START, END = '<!-- stadium:start -->\n', '      <!-- stadium:end -->'
+def css_block() -> str:
+    # Registered as colours so the variables themselves can fade between off and on.
+    props = ''.join(f"@property --st-{k} {{ syntax: '<color>'; inherits: true; initial-value: transparent; }}\n"
+                    for k in LIT)
+    off = ' '.join(f'--st-{k}: {v[0]};' for k, v in LIT.items())
+    on = ' '.join(f'--st-{k}: {v[1]};' for k, v in LIT.items())
+    fade = ', '.join(f'--st-{k} .6s' for k in LIT)
+    return (f'{props}#stadium {{ {off} transition: {fade}; }}\n'
+            f'#stadium[data-lights="on"] {{ {on} }}\n')
 
 
-def inline(html: str, svg: str) -> str:
-    head, rest = html.split(START)
-    _, tail = rest.split(END)
-    return head + START + svg + END + tail
+def splice(text: str, start: str, end: str, body: str) -> str:
+    head, rest = text.split(start)
+    _, tail = rest.split(end)
+    return head + start + body + end + tail
 
 
 def main() -> int:
-    index = Path(__file__).resolve().parent.parent / 'site' / 'index.html'
-    html = index.read_text()
-    updated = inline(html, to_svg(build().rasterize()))
-    if '--check' in sys.argv:
-        if updated != html:
-            print('site/index.html is out of date: run `uv run python tools/stadium.py`')
-            return 1
-        return 0
-    index.write_text(updated)
+    site = Path(__file__).resolve().parent.parent / 'site'
+    grids = build().rasterize()
+    outputs = {
+        site / 'stadium.svg': lambda _: to_svg(grids),
+        site / 'index.html': lambda text: splice(
+            text, '<!-- stadium:start -->\n', '      <!-- stadium:end -->', use_snippet(grids)),
+        site / 'styles.css': lambda text: splice(
+            text, '/* stadium:start — generated by tools/stadium.py */\n', '/* stadium:end */', css_block()),
+    }
+    stale = []
+    for path, update in outputs.items():
+        current = path.read_text() if path.exists() else ''
+        updated = update(current)
+        if updated != current:
+            stale.append(path.name)
+            if '--check' not in sys.argv:
+                path.write_text(updated)
+    if '--check' in sys.argv and stale:
+        print(f'out of date: {", ".join(stale)}; run `uv run python tools/stadium.py`')
+        return 1
     return 0
 
 
