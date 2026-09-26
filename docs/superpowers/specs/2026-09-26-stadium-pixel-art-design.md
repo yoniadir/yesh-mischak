@@ -24,17 +24,19 @@ confirmed event today (game or not), **off** when there is none.
   column width (max 40rem) with a fixed aspect ratio.
 - Night scene: sky, curved roof canopy over the two long stands, end stands, a strip of
   pitch, 4 floodlight masts with lamp heads.
-- Named groups drive the states: `.lamp`, `.beam`, `.stand-lit`, `.pitch`.
+- Classes drive the states: `.shade` (one night overlay over the whole scene), `.beam`,
+  `.lamp`, `.window`, `.stars`.
 - Seat accents in Tel Aviv yellow / blue / red.
 
 ## States (CSS only, in `site/styles.css`)
 
 | Part | Off | On |
 |---|---|---|
+| Shade overlay | opacity .55 — stands, pitch and sky dimmed | opacity 0 — everything lit |
 | Lamps | dark grey | warm yellow |
 | Beams | opacity 0 | semi-transparent light falling onto the pitch |
-| Pitch | dim green-grey | bright green |
-| Stands | shadowed | lit |
+| Facade windows | dark | warm yellow |
+| Stars | bright | faded (light pollution) |
 
 - Short transition between states.
 - Slow, subtle lamp flicker when on, only under `prefers-reduced-motion: no-preference`.
