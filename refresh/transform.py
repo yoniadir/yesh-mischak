@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from refresh.config import PAST_DAYS, SOURCES, TZ, VENUE_CALENDARS
+from refresh.fixtures import parse_fixtures
 from refresh.venue import parse_venue
 
 
@@ -23,9 +24,16 @@ def build(payloads: Payloads, now: datetime) -> Artifacts:
         for calendar_id, text in payloads.venue.items()
         for event in parse_venue(text, VENUE_CALENDARS[calendar_id])
     ]
+    # The same game appears in both clubs' feeds (derbies): keep one per game id.
+    tentative = {
+        event.id: event for text in payloads.fixtures.values() for event in parse_fixtures(text)
+    }.values()
+    confirmed_days = {e.date for e in confirmed}
+    merged = confirmed + [e for e in tentative if e.date not in confirmed_days]
+
     cutoff = now.astimezone(TZ).date() - timedelta(days=PAST_DAYS)
     kept = sorted(
-        (e for e in confirmed if e.date >= cutoff),
+        (e for e in merged if e.date >= cutoff),
         key=lambda e: (e.date, e.time or "", e.title, e.id),
     )
     document = {
