@@ -20,21 +20,24 @@ confirmed event today (game or not), **off** when there is none.
 
 ## Drawing
 
-- Aerial view matching the reference photo: oval bowl, the two white truss arches over the
-  end stands, white roof canopies, mesh-roofed right stand, pitch with markings, glowing
-  lower facade, Tel Aviv and the sea behind at dusk.
-- Generated, not hand-typed: `tools/stadium.py` (stdlib only) draws shapes in the
-  reference photo's coordinates, samples them onto a 128×100 grid and inlines the SVG
-  into `site/index.html` between `<!-- stadium:start -->` / `<!-- stadium:end -->`.
-  `--check` fails if the inlined copy is stale; `tests/test_stadium_art.py` runs it.
-- `shape-rendering="crispEdges"`; one `<path>` per colour.
+- The stadium alone, no landscape, on a plain night-blue card. Aerial view from the
+  south as in the reference photo: pitch runs away from the viewer (goals top and bottom),
+  the two white box trusses run along the long sides and splay towards the camera, blue
+  seating bowl with a walkway ring, partial roof over the west stand, faceted white shell
+  on a lit concourse, floodlights under the trusses.
+- Generated, not hand-typed: `tools/stadium.py` (stdlib only) models the stadium in metres,
+  projects it with an elevated camera and mild perspective, samples it onto a pixel grid
+  (about 118×106) and inlines the SVG into `site/index.html` between
+  `<!-- stadium:start -->` / `<!-- stadium:end -->`. `--check` fails if the inlined copy is
+  stale; `tests/test_stadium_art.py` runs it.
+- `shape-rendering="crispEdges"`; one `<path>` per colour; empty pixels are transparent.
 
 ## States
 
 - Every stadium colour has an off/on pair; the generator emits them as a `<style>` inside
-  the SVG keyed on `#stadium[data-lights="on"]`. City, sky and sea don't change.
-- On: white roofs and arches, lit seats, bright pitch, glowing facade. Off: the stadium
-  goes dark while the city stays lit.
+  the SVG keyed on `#stadium[data-lights="on"]`.
+- On: white roofs and arches, lit seats, bright pitch, glowing facade. Off: the whole
+  stadium goes dark.
 - `.stadium path { transition: fill .6s }`; no animation.
 
 ## Testing

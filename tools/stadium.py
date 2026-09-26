@@ -1,48 +1,102 @@
 """Generate the pixel-art Bloomfield Stadium and inline it into site/index.html.
 
-The scene is drawn as shapes in the coordinates of a 1024px aerial reference photo,
-then sampled onto a coarse pixel grid. Stadium colours have an "off" and an "on" value;
-the page flips between them with `data-lights` on the #stadium figure.
+The stadium is modelled in metres (x east, y north, z up, origin at the centre spot),
+projected from an elevated camera south of the ground looking north, and sampled onto a
+pixel grid. Every colour has an "off" and an "on" value; the page flips between them
+with `data-lights` on the #stadium figure.
 
     uv run python tools/stadium.py           # rewrite site/index.html
     uv run python tools/stadium.py --check   # exit 1 if index.html is out of date
 """
 import math
-import random
 import sys
 from pathlib import Path
 
-W, H = 128, 100          # grid size in pixels
-S = 8                    # photo px per grid pixel
-Y0 = 90                  # photo y of the grid's top edge
+ELEVATION = math.radians(48)   # camera angle above the horizon
+DISTANCE = 260                 # camera distance in metres, for mild perspective
+SCALE = 0.6                    # grid pixels per metre
+MARGIN = 2                     # empty pixels around the stadium
 
-# Colours that don't depend on the lights.
-FIXED = {
-    'sky1': '#2f2f52', 'sky2': '#5b4a6e', 'sky3': '#a0677a', 'sky4': '#e0935f', 'sky5': '#f2b872',
-    'sea': '#34476b', 'sea2': '#4b5f86',
-    'ground': '#2a2a33', 'city1': '#34343f', 'city2': '#3f3f4a', 'city3': '#4a4852',
-    'tower': '#454c60', 'tower2': '#353b4d', 'cwin': '#f6c56f', 'cwin2': '#b98b52',
-    'tree': '#1d3326', 'road': '#23232b', 'lamp': '#ffcc66',
-}
-# Stadium colours: (lights off, lights on).
+# (lights off, lights on)
 LIT = {
-    'roof': ('#4a505d', '#eef1f6'), 'roof2': ('#3a3f4b', '#c6ccd7'),
-    'mesh': ('#30353f', '#8e97a8'), 'mesh2': ('#282c35', '#737d90'),
-    'truss': ('#5d6373', '#ffffff'), 'truss2': ('#3a3f4c', '#b9c0cd'),
-    'seat': ('#252a35', '#a6b1c7'), 'seat2': ('#20242e', '#8f9bb3'),
-    'pitch1': ('#1f3526', '#6dcb4e'), 'pitch2': ('#1b2f21', '#5ab742'),
-    'line': ('#2c4131', '#eef9e6'),
-    'glow': ('#2b2f3a', '#ffd98a'), 'column': ('#21242d', '#b8894a'),
+    'roof': ('#4a505d', '#f1f3f7'), 'roof2': ('#3a3f4b', '#cdd3dd'),
+    'glow': ('#2b2f3a', '#ffd98a'), 'column': ('#1f222a', '#c49a5e'),
+    'seat': ('#262c3a', '#5673a8'), 'seat2': ('#212633', '#46608f'), 'walk': ('#30353f', '#b8c0cc'),
+    'runoff': ('#17281c', '#3e9a3a'), 'pitch1': ('#1f3526', '#6dcb4e'), 'pitch2': ('#1b2f21', '#5ab742'),
+    'line': ('#2c4131', '#f0fae8'),
+    'truss': ('#5d6373', '#ffffff'), 'truss2': ('#353a46', '#aab2c0'), 'flood': ('#353a46', '#fff3b0'),
 }
 
-Grid = list[list[str]]
+Point = tuple[float, float, float]
+Flat = list[tuple[float, float]]
 
 
-def centre(gx: int, gy: int) -> tuple[float, float]:
-    return (gx + 0.5) * S, Y0 + (gy + 0.5) * S
+def project(p: Point) -> tuple[float, float]:
+    x, y, z = p
+    s, c = math.sin(ELEVATION), math.cos(ELEVATION)
+    f = DISTANCE / (DISTANCE + y * c - z * s)
+    return x * f * SCALE, -(y * s + z * c) * f * SCALE
 
 
-def in_poly(x: float, y: float, pts: list[tuple[float, float]]) -> bool:
+def outline(a: float, b: float, n: float, z: float, steps: int = 72) -> list[Point]:
+    """Counter-clockwise superellipse |x/a|^n + |y/b|^n = 1 at height z."""
+    pts = []
+    for i in range(steps):
+        t = 2 * math.pi * i / steps
+        c, s = math.cos(t), math.sin(t)
+        pts.append((a * math.copysign(abs(c) ** (2 / n), c), b * math.copysign(abs(s) ** (2 / n), s), z))
+    return pts
+
+
+def lerp(p: Point, q: Point, t: float) -> Point:
+    return tuple(a + (b - a) * t for a, b in zip(p, q))
+
+
+def checker(a, b):
+    return lambda gx, gy: a if (gx + gy) % 2 else b
+
+
+def columns(gx, gy):
+    return 'column' if gx % 3 == 0 else 'glow'
+
+
+class Scene:
+    """Shapes in paint order: filled polygons and 1px lines, in projected coordinates."""
+
+    def __init__(self):
+        self.shapes: list[tuple[str, Flat, object]] = []
+
+    def fill(self, pts: list[Point], key) -> None:
+        self.shapes.append(('fill', [project(p) for p in pts], key))
+
+    def line(self, pts: list[Point], key, width: float = 1.1) -> None:
+        flat = [project(p) for p in pts]
+        for a, b in zip(flat, flat[1:]):
+            self.shapes.append(('line', [a, b], (key, width)))
+
+    def rasterize(self) -> list[list[str | None]]:
+        xs = [x for _, pts, _ in self.shapes for x, _ in pts]
+        ys = [y for _, pts, _ in self.shapes for _, y in pts]
+        x0, y0 = math.floor(min(xs)) - MARGIN, math.floor(min(ys)) - MARGIN
+        w, h = math.ceil(max(xs)) + MARGIN - x0, math.ceil(max(ys)) + MARGIN - y0
+        grid: list[list[str | None]] = [[None] * w for _ in range(h)]
+        for kind, pts, key in self.shapes:
+            pts = [(x - x0, y - y0) for x, y in pts]
+            if kind == 'fill':
+                test = lambda x, y, pts=pts: in_poly(x, y, pts)
+            else:
+                key, width = key
+                test = lambda x, y, pts=pts, width=width: near_segment(x, y, *pts[0], *pts[1], width)
+            bx0, bx1 = int(min(p[0] for p in pts)) - 1, int(max(p[0] for p in pts)) + 2
+            by0, by1 = int(min(p[1] for p in pts)) - 1, int(max(p[1] for p in pts)) + 2
+            for gy in range(max(by0, 0), min(by1, h)):
+                for gx in range(max(bx0, 0), min(bx1, w)):
+                    if test(gx + 0.5, gy + 0.5):
+                        grid[gy][gx] = key(gx, gy) if callable(key) else key
+        return grid
+
+
+def in_poly(x: float, y: float, pts: Flat) -> bool:
     inside = False
     j = len(pts) - 1
     for i, (xi, yi) in enumerate(pts):
@@ -53,158 +107,89 @@ def in_poly(x: float, y: float, pts: list[tuple[float, float]]) -> bool:
     return inside
 
 
-def paint(grid: Grid, test, key) -> None:
-    """Set every cell whose centre passes `test(x, y)`; `key` is a colour or f(gx, gy)."""
-    for gy in range(H):
-        for gx in range(W):
-            x, y = centre(gx, gy)
-            if test(x, y):
-                grid[gy][gx] = key(gx, gy) if callable(key) else key
+def near_segment(x, y, ax, ay, bx, by, width) -> bool:
+    dx, dy = bx - ax, by - ay
+    t = max(0.0, min(1.0, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy or 1)))
+    return math.hypot(x - (ax + t * dx), y - (ay + t * dy)) <= width / 2
 
 
-def poly(pts):
-    return lambda x, y: in_poly(x, y, pts)
+def build() -> Scene:
+    sc = Scene()
+    shell_top, shell_base = outline(74, 94, 3.2, 24), outline(74, 94, 3.2, 0)
+    stand_top, stand_foot = (66, 86, 3.2, 22), (38, 57, 6, 1)
+
+    # Roof rim of the faceted shell (the bowl is painted over its middle).
+    sc.fill(shell_top, 'roof')
+
+    # Seating bowl as concentric rows, top tier to front row, with a walkway ring.
+    rows = 12
+    for i in range(rows):
+        t = i / rows
+        a, b, n, z = (o + (f - o) * t for o, f in zip(stand_top, stand_foot))
+        sc.fill(outline(a, b, n, z), 'walk' if i == 5 else ('seat' if i % 2 else 'seat2'))
+
+    # Pitch: run-off, mowing bands along its length, markings.
+    sc.fill(outline(38, 57, 6, 0.5), 'runoff')
+    for i in range(10):
+        y0, y1 = -52.5 + i * 10.5, -52.5 + (i + 1) * 10.5
+        sc.fill([(-34, y0, 0), (34, y0, 0), (34, y1, 0), (-34, y1, 0)], 'pitch1' if i % 2 else 'pitch2')
+    sc.line([(-34, -52.5, 0), (34, -52.5, 0), (34, 52.5, 0), (-34, 52.5, 0), (-34, -52.5, 0)], 'line')
+    sc.line([(-34, 0, 0), (34, 0, 0)], 'line')
+    circle = [(9.15 * math.cos(t / 12 * math.pi), 9.15 * math.sin(t / 12 * math.pi), 0) for t in range(25)]
+    sc.line(circle, 'line')
+    for end in (-1, 1):
+        g, box = 52.5 * end, (52.5 - 16.5) * end
+        sc.line([(-20.15, g, 0), (-20.15, box, 0), (20.15, box, 0), (20.15, g, 0)], 'line')
+
+    # Partial roof over the west stand.
+    sc.fill([(-74, -76, 25), (-74, 76, 25), (-44, 64, 21), (-44, -64, 21)], 'roof')
+    sc.line([(-44, -64, 21), (-44, 64, 21)], 'roof2')
+
+    # South-facing outer wall: lit concourse on pillars, faceted white skin above.
+    for i, (p, q) in enumerate(zip(shell_base, shell_base[1:] + shell_base[:1])):
+        if q[0] - p[0] <= 0:          # faces away from the camera
+            continue
+        pt, qt = shell_top[i], shell_top[(i + 1) % len(shell_top)]
+        pm, qm = lerp(p, pt, 0.3), lerp(q, qt, 0.3)
+        sc.fill([p, q, qm, pm], columns)
+        light, shade = ('roof', 'roof2') if (i // 4) % 2 else ('roof2', 'roof')
+        sc.fill([pm, qm, qt], light)
+        sc.fill([pm, qt, pt], shade)
+
+    # The two arched box trusses along the long sides, carrying the floodlights.
+    # Triangular section: two top chords, one bottom chord, lattice between.
+    for x in (-54, 54):
+        ys = [-94 + 188 * i / 46 for i in range(47)]
+        arch = [(y, 28 + 26 * (1 - (y / 94) ** 2)) for y in ys]
+        bottom = [(x, y, z - 10) for y, z in arch]
+        for side in (-4, 4):
+            top = [(x + side, y, z) for y, z in arch]
+            sc.fill(top + bottom[::-1], checker('truss', 'truss2'))
+            sc.line(top, 'truss', 1.3)
+        sc.line(bottom, 'truss', 1.3)
+        for y, z in (arch[0], arch[-1]):
+            sc.fill([(x - 4, y, z), (x + 4, y, z), (x + 4, y, 22), (x - 4, y, 22)], 'truss')
+        for px, py, pz in bottom[5:-5:6]:
+            sc.line([(px, py, pz), (px, py, pz - 0.1)], 'flood', 1.8)
+    return sc
 
 
-def ellipse(cx, cy, rx, ry):
-    return lambda x, y: ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1
-
-
-def rect(x0, y0, x1, y1):
-    return lambda x, y: x0 <= x < x1 and y0 <= y < y1
-
-
-def near_segment(ax, ay, bx, by, width):
-    def test(x, y):
-        dx, dy = bx - ax, by - ay
-        t = max(0.0, min(1.0, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy)))
-        return math.hypot(x - (ax + t * dx), y - (ay + t * dy)) <= width / 2
-    return test
-
-
-def checker(a, b):
-    return lambda gx, gy: a if (gx + gy) % 2 else b
-
-
-def sky(grid: Grid) -> None:
-    bands = [(110, 'sky1'), (125, 'sky2'), (138, 'sky3'), (150, 'sky4'), (10_000, 'sky5')]
-    for gy in range(H):
-        for gx in range(W):
-            _, y = centre(gx, gy)
-            for i, (limit, key) in enumerate(bands):
-                if y < limit:
-                    # Dither the last pixel row of each band into the next one.
-                    if i + 1 < len(bands) and y > limit - S and (gx + gy) % 2:
-                        key = bands[i + 1][1]
-                    grid[gy][gx] = key
-                    break
-
-
-def city(grid: Grid) -> None:
-    coast = [(0, 150), (1024, 150), (1024, 1020), (0, 1020)]
-    sea = [(0, 150), (560, 150), (430, 196), (300, 222), (90, 262), (0, 285)]
-    paint(grid, poly(coast), 'ground')
-    paint(grid, poly(sea), lambda gx, gy: 'sea2' if gy % 3 == 0 and gx % 5 == 1 else 'sea')
-    paint(grid, near_segment(0, 280, 560, 150, 4), 'sea2')
-
-    rng = random.Random(7)
-    land = lambda x, y: y > 150 and not in_poly(x, y, sea)
-    # Rooftop blocks, back to front.
-    for _ in range(420):
-        gx, gy = rng.randrange(W), rng.randrange(6, H)
-        w, h = rng.randint(2, 5), rng.randint(2, 4)
-        key = rng.choice(['city1', 'city2', 'city2', 'city3'])
-        for yy in range(gy, min(gy + h, H)):
-            for xx in range(gx, min(gx + w, W)):
-                if land(*centre(xx, yy)):
-                    grid[yy][xx] = key
-        if rng.random() < 0.3:
-            wx, wy = gx + rng.randrange(w), gy + rng.randrange(h)
-            if wx < W and wy < H and land(*centre(wx, wy)):
-                grid[wy][wx] = rng.choice(['cwin', 'cwin2'])
-    # High-rise towers on the skyline.
-    towers = [(795, 98, 840), (838, 120, 868), (870, 150, 900), (655, 132, 685), (990, 128, 1024),
-              (372, 145, 408), (290, 172, 330), (420, 135, 445), (700, 160, 730), (930, 160, 965)]
-    for x0, top, x1 in towers:
-        paint(grid, rect(x0, top, x1, 300), lambda gx, gy: 'tower2' if gx % 3 == 0 else 'tower')
-        paint(grid, rect(x0 + 8, top + 12, x1 - 4, 290),
-              lambda gx, gy: 'cwin2' if (gx * 7 + gy * 3) % 11 == 0 else grid[gy][gx])
-    # Coastal boulevard lights.
-    paint(grid, near_segment(0, 300, 330, 240, 5), lambda gx, gy: 'lamp' if gx % 2 else 'road')
-    # Trees and the road in front of the stadium.
-    for cx, cy, r in [(70, 620, 45), (40, 700, 40), (960, 700, 50), (990, 800, 40), (330, 860, 35), (430, 850, 30)]:
-        paint(grid, ellipse(cx, cy, r, r * 0.8), 'tree')
-    paint(grid, poly([(0, 850), (1024, 830), (1024, 880), (0, 905)]), 'road')
-    paint(grid, poly([(0, 868), (1024, 848), (1024, 856), (0, 876)]),
-          lambda gx, gy: 'lamp' if gx % 3 == 0 else 'road')
-
-
-def stadium(grid: Grid) -> None:
-    stripes = lambda a, b, period=2: (lambda gx, gy: a if (gy // period) % 2 else b)
-    columns = lambda gx, gy: 'column' if gx % 4 == 0 else 'glow'
-
-    # Outer shell: lit concourse and pillars around the whole footprint.
-    shell = [(110, 590), (170, 530), (330, 470), (720, 462), (860, 505), (935, 580), (940, 700),
-             (905, 790), (800, 838), (255, 838), (150, 790), (105, 700)]
-    paint(grid, poly(shell), 'roof2')
-    paint(grid, lambda x, y: y > 610 and in_poly(x, y, shell), columns)
-    # Seating bowl.
-    bowl = [(270, 585), (360, 520), (705, 512), (790, 545), (835, 640), (815, 725), (705, 765),
-            (370, 765), (285, 740), (262, 650)]
-    paint(grid, poly(bowl), stripes('seat', 'seat2', 1))
-    # Back-stand roof edge and left-hand canopy (flat white panel + glazed strip).
-    paint(grid, poly([(410, 488), (725, 482), (722, 516), (412, 522)]), 'roof')
-    paint(grid, poly([(170, 548), (258, 502), (340, 500), (318, 585), (178, 590)]), 'roof')
-    paint(grid, poly([(340, 500), (392, 505), (372, 585), (318, 585)]), 'roof2')
-    # Right-hand stand under its translucent mesh roof.
-    paint(grid, poly([(735, 470), (820, 492), (895, 535), (932, 590), (935, 665), (905, 705),
-                      (830, 705), (790, 590)]), checker('mesh', 'mesh2'))
-    # Pitch with mowing stripes, touchlines, halfway line, centre circle and boxes.
-    pitch = [(385, 598), (690, 598), (700, 752), (370, 752)]
-    paint(grid, poly(pitch), stripes('pitch1', 'pitch2'))
-    edge = lambda x, y: in_poly(x, y, pitch) and not in_poly(x, y, [(393, 605), (682, 605), (691, 745), (379, 745)])
-    paint(grid, edge, 'line')
-    paint(grid, rect(531, 598, 539, 752), 'line')
-    paint(grid, lambda x, y: 0.72 <= ((x - 535) / 48) ** 2 + ((y - 675) / 28) ** 2 <= 1.28, 'line')
-    paint(grid, lambda x, y: in_poly(x, y, [(385, 640), (432, 640), (432, 712), (380, 712)])
-          and not in_poly(x, y, [(385, 648), (424, 648), (424, 704), (380, 704)]), 'line')
-    paint(grid, lambda x, y: in_poly(x, y, [(648, 640), (693, 640), (697, 712), (648, 712)])
-          and not in_poly(x, y, [(656, 648), (693, 648), (697, 704), (656, 704)]), 'line')
-    # Near-side roof sweeping across the front, with a darker underside edge.
-    front = [(232, 700), (370, 758), (705, 758), (835, 700), (838, 740), (800, 792), (255, 792), (228, 745)]
-    paint(grid, poly(front), 'roof')
-    paint(grid, poly([(255, 776), (800, 776), (800, 792), (255, 792)]), 'roof2')
-    # The two white truss arches over the end stands.
-    for a, b in [((352, 462), (262, 702)), ((728, 458), (812, 702))]:
-        paint(grid, near_segment(*a, *b, 22), checker('truss', 'truss2'))
-        paint(grid, near_segment(*a, *b, 9), 'truss')
-
-
-def render() -> Grid:
-    grid: Grid = [['sky1'] * W for _ in range(H)]
-    sky(grid)
-    city(grid)
-    stadium(grid)
-    return grid
-
-
-def to_svg(grid: Grid) -> str:
+def to_svg(grid: list[list[str | None]]) -> str:
+    h, w = len(grid), len(grid[0])
     runs: dict[str, list[str]] = {}
     for gy, row in enumerate(grid):
         gx = 0
-        while gx < W:
+        while gx < w:
             key, start = row[gx], gx
-            while gx < W and row[gx] == key:
+            while gx < w and row[gx] == key:
                 gx += 1
-            runs.setdefault(key, []).append(f'M{start} {gy}h{gx - start}v1h-{gx - start}z')
+            if key:
+                runs.setdefault(key, []).append(f'M{start} {gy}h{gx - start}v1h-{gx - start}z')
     style = ' '.join(
         f'#stadium .k-{k}{{fill:{off}}} #stadium[data-lights="on"] .k-{k}{{fill:{on}}}'
         for k, (off, on) in LIT.items())
-    paths = '\n'.join(
-        f'        <path class="k-{k}" d="{"".join(d)}"/>' if k in LIT else
-        f'        <path fill="{FIXED[k]}" d="{"".join(d)}"/>'
-        for k, d in runs.items())
-    return (f'      <svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" shape-rendering="crispEdges" '
+    paths = '\n'.join(f'        <path class="k-{k}" d="{"".join(d)}"/>' for k, d in runs.items())
+    return (f'      <svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" shape-rendering="crispEdges" '
             f'focusable="false" xmlns="http://www.w3.org/2000/svg">\n'
             f'        <style>{style}</style>\n{paths}\n      </svg>\n')
 
@@ -221,7 +206,7 @@ def inline(html: str, svg: str) -> str:
 def main() -> int:
     index = Path(__file__).resolve().parent.parent / 'site' / 'index.html'
     html = index.read_text()
-    updated = inline(html, to_svg(render()))
+    updated = inline(html, to_svg(build().rasterize()))
     if '--check' in sys.argv:
         if updated != html:
             print('site/index.html is out of date: run `uv run python tools/stadium.py`')
