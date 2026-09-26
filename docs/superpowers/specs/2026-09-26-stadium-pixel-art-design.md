@@ -20,7 +20,7 @@ confirmed event today (game or not), **off** when there is none.
 
 ## Drawing
 
-- The stadium alone, no landscape, on a plain night-blue card. Aerial view from the
+- The stadium alone, no landscape, on a transparent background (no card or border). Aerial view from the
   south as in the reference photo: pitch runs away from the viewer (goals top and bottom),
   the two white box trusses run along the long sides and splay towards the camera, blue
   seating bowl with a walkway ring, partial roof over the west stand, faceted white shell
@@ -31,6 +31,9 @@ confirmed event today (game or not), **off** when there is none.
   `<!-- stadium:start -->` / `<!-- stadium:end -->`. `--check` fails if the inlined copy is
   stale; `tests/test_stadium_art.py` runs it.
 - `shape-rendering="crispEdges"`; one `<path>` per colour; empty pixels are transparent.
+- Size: decorative, so it must never push the answer below the fold:
+  `width: min(13rem, 42vw, 30vh)` (~160px on phones, 208px max, shrinks on short
+  viewports). A faint `drop-shadow` keeps the white shell's edge visible on the light theme.
 
 ## States
 
