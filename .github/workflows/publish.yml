@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
   group: publish
@@ -19,10 +19,12 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv run pytest -q
+      - run: uv run --locked pytest -q
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,23 +32,29 @@ jobs:
 
   refresh:
     needs: test
-    if: github.event_name != 'push'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv run python -m refresh
+      - run: uv run --locked python -m refresh
       - name: Commit artifacts if changed
         run: |
           git config user.name "yesh-mischak bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/events.json site/bloomfield.ics
-          git diff --cached --quiet || { git commit -m "data: refresh $(TZ=Asia/Jerusalem date +%F)"; git push; }
+          git diff --cached --quiet || { git commit -m "data: refresh $(TZ=Asia/Jerusalem date +%F)"; git pull --rebase origin main && git push; }
 
   deploy:
     needs: [test, refresh]
-    if: always() && needs.test.result == 'success' && needs.refresh.result != 'failure' && needs.refresh.result != 'cancelled'
+    if: always() && github.event_name != 'pull_request' && needs.test.result == 'success' && needs.refresh.result != 'failure' && needs.refresh.result != 'cancelled'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
