@@ -22,7 +22,7 @@ PAST_DAYS = 7
 # A night event only counts on the following day if still running at this hour.
 DAY_ROLLOVER = timedelta(hours=6)
 
-USER_AGENT = "yesh-mischak/1.0 (+https://github.com/)"
+USER_AGENT = "yesh-mischak/1.0 (+https://github.com/yoniadir/yesh-mischak)"
 
 SOURCES = [
     {

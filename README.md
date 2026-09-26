@@ -2,7 +2,7 @@
 
 Is there an event at Bloomfield Stadium today? One static page, refreshed daily.
 
-- Page: `https://<user>.github.io/yesh-mischak/`
+- Page: `https://yoniadir.github.io/yesh-mischak/`
 - Data contract: `…/events.json` (version 1 — fields may be added, never renamed)
 - Calendar feed (confirmed events only): `…/bloomfield.ics`
   Google Calendar → Other calendars → **From URL** → paste the feed URL. Set a reminder on that calendar for a day-ahead notification.
