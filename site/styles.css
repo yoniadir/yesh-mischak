@@ -42,4 +42,4 @@ footer a { color: inherit; }
 .cal-event { margin-top: 2px; }
 .cal-event.confirmed { color: var(--confirmed); font-weight: 600; }
 .cal-event.tentative { color: var(--tentative); font-style: italic; }
-.cal-tag { display: inline-block; margin-inline-start: 3px; padding: 0 4px; border: 1px dashed var(--tentative); border-radius: 4px; font-style: normal; }
+.cal-tag { display: inline-block; margin-inline-start: 3px; padding: 0 4px; border: 1px dashed var(--tentative); border-radius: 4px; font-style: normal; white-space: nowrap; font-size: .6rem; }
