@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 
 from refresh.config import PAST_DAYS, SOURCES, TZ, VENUE_CALENDARS
 from refresh.fixtures import parse_fixtures
+from refresh.ics import render_ics
 from refresh.venue import parse_venue
 
 
@@ -16,6 +17,7 @@ class Payloads:
 @dataclass(frozen=True)
 class Artifacts:
     events_json: str
+    ics: str
 
 
 def build(payloads: Payloads, now: datetime) -> Artifacts:
@@ -43,4 +45,7 @@ def build(payloads: Payloads, now: datetime) -> Artifacts:
         "sources": SOURCES,
         "events": [e.to_json() for e in kept],
     }
-    return Artifacts(events_json=json.dumps(document, ensure_ascii=False, indent=2) + "\n")
+    return Artifacts(
+        events_json=json.dumps(document, ensure_ascii=False, indent=2) + "\n",
+        ics=render_ics([e for e in kept if e.status == "confirmed"], now),
+    )
