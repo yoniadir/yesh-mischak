@@ -67,6 +67,9 @@ function renderChrome() {
 }
 
 function renderAnswer(vm) {
+  const stadium = $('stadium');
+  stadium.hidden = false;
+  stadium.dataset.lights = vm.today.busy ? 'on' : 'off';
   const today = $('today');
   today.className = `today ${vm.today.busy ? 'yes' : 'no'}`;
   const answer = vm.today.busy ? (vm.today.isGame ? t('yesGame') : t('yesEvent')) : t('no');
