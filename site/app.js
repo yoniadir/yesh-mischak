@@ -20,7 +20,7 @@ export const STRINGS = {
     stale: 'Heads up: data has not been refreshed for over two days and may be out of date.',
     updated: 'Updated', sources: 'Sources', subscribe: 'Add to calendar (iCal)',
     loadError: 'Could not load the data.',
-    tentative: 'Tentative', prevMonth: 'Previous month', nextMonth: 'Next month',
+    tentative: 'Likely', prevMonth: 'Previous month', nextMonth: 'Next month',
     football: '⚽', concert: '🎵', other: '•',
   },
 };
