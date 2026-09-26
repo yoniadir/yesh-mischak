@@ -113,12 +113,22 @@ function monthDays(month) {
   return { blanks, days };
 }
 
+function groupByDate(events) {
+  const byDay = new Map();
+  for (const e of events) {
+    const list = byDay.get(e.date);
+    if (list) list.push(e);
+    else byDay.set(e.date, [e]);
+  }
+  return byDay;
+}
+
 export function renderCalendar() {
   const locale = t('locale');
   const [y, m] = state.month.split('-').map(Number);
   const title = new Date(Date.UTC(y, m - 1, 15)).toLocaleDateString(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' });
   const today = jerusalemDate(new Date());
-  const byDay = Map.groupBy(state.data.events, (e) => e.date);
+  const byDay = groupByDate(state.data.events);
 
   const nav = el('div', { class: 'cal-nav' },
     el('button', { type: 'button', 'aria-label': t('prevMonth'), 'data-shift': '-1' }, state.lang === 'he' ? '→' : '←'),
@@ -162,7 +172,11 @@ export function render() {
   if (!state.data) return;
   renderAnswer(viewModel(state.data, new Date()));
   renderFooter(state.data);
-  renderCalendar();
+  try {
+    renderCalendar();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 $('lang').addEventListener('click', () => {
@@ -171,13 +185,30 @@ $('lang').addEventListener('click', () => {
   render();
 });
 
-render();
-try {
-  const response = await fetch('events.json', { cache: 'no-cache' });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  state.data = await response.json();
-  render();
-} catch (error) {
-  $('today').replaceChildren(el('p', { class: 'warning' }, t('loadError')));
-  console.error(error);
+async function load() {
+  try {
+    const response = await fetch('events.json', { cache: 'no-cache' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    state.data = await response.json();
+    render();
+  } catch (error) {
+    console.error(error);
+    // Keep showing existing data (the staleness warning covers it); only
+    // report a load error when we have nothing at all to show.
+    if (!state.data) {
+      $('today').replaceChildren(el('p', { class: 'warning' }, t('loadError')));
+    }
+  }
 }
+
+render();
+load();
+
+// A backgrounded tab can be resumed by the OS on a later day without
+// reloading, which would otherwise keep showing a stale "today" answer.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') load();
+});
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) load();
+});
