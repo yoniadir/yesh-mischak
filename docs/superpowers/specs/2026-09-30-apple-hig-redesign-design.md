@@ -92,14 +92,15 @@ generator markers and tests stay valid.
    Headline title, Subheadline "relative day · time". No border box.
 3. **Calendar** — one grouped card.
    - Header row: Title 2 month name, chevron buttons trailing (44×44, no border, `--blue`
-     tinted, glyph mirrored in RTL so "previous" always points at the start edge), plus a
+     tinted, chevron drawn in CSS and flipped under `[dir="rtl"]` so "previous" always points at the start edge), plus a
      "Today" text button shown when the visible month or selection differs from today.
    - Weekday row: Caption, `--label-2`, `aria-hidden`.
    - Day cells: `<button type="button">`, square, day number centred (tabular numerals).
-     Below the number, up to two dots: solid `--blue` for a confirmed event, hollow
-     `--orange` ring for likely. Today: number in a filled `--red` circle with white text.
-     Selected day: `--fill` circle (or `--label` circle when it is not today). Past days at
-     40% opacity but still selectable. No event text in cells.
+     Below the number, one dot: solid `--blue` for a confirmed event, hollow
+     `--orange` ring for a day with only likely events. Today: number in `--red-text`.
+     Selected day: `--label` circle with inverted text; selected today: filled red circle
+     with white text. Past days use a `--label-2` number (kept AA-legible) and stay
+     selectable. No event text in cells.
    - Weeks start on Sunday (unchanged).
 4. **Selected-day detail** — directly under the grid, in the same card after a hairline: date
    as Headline ("Saturday, 10 October"), then one row per event (kind glyph, title,
@@ -129,7 +130,7 @@ Pure, testable additions to `view.js`:
 class names and markup for the new hero/next components.
 
 RTL: use logical properties (`margin-inline`, `padding-inline`, `inset-inline`, `text-align: start`)
-throughout; chevron direction chosen in JS as today (`state.lang`), not by CSS transform.
+throughout; chevron direction comes from `[dir="rtl"]` rules on `.pt-start` / `.pt-end`.
 
 ## Accessibility
 
