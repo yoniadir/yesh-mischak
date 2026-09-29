@@ -1,3 +1,6 @@
+/* Heebo (SIL OFL 1.1, see fonts/OFL.txt) supplies Hebrew everywhere (the Apple system font has no Hebrew) and Latin on non-Apple devices; Latin on Apple devices stays the native system font. */
+@font-face { font-family: Heebo; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/heebo-hebrew.woff2) format('woff2'); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+@font-face { font-family: Heebo; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/heebo-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 :root {
   color-scheme: light dark;
   --bg: #f2f2f7; --surface: #fff; --seg-selected: #fff;
@@ -7,7 +10,7 @@
   --red-text: #d70015; --green-text: #1f7a37; --blue-text: #0062cc; --orange-text: #b35c00;
   --today-bg: #dc1f2e;
   --yellow-bg: rgb(255 204 0 / .2); --yellow-fg: #6b4e00;
-  font-family: -apple-system, system-ui, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Heebo, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
