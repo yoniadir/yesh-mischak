@@ -1,8 +1,8 @@
-import { viewModel, jerusalemDate, TIMEZONE } from './view.js';
+import { viewModel, jerusalemDate, TIMEZONE, dayIndicators, defaultSelection } from './view.js';
 
 export const STRINGS = {
   he: {
-    dir: 'rtl', locale: 'he-IL', toggle: 'English', brand: 'יש משחק? · בלומפילד',
+    dir: 'rtl', locale: 'he-IL', brand: 'יש משחק? · בלומפילד',
     yesGame: 'יש משחק', yesEvent: 'יש אירוע', no: 'אין משחק',
     next: 'האירוע הבא', noNext: 'אין אירועים מאושרים בקרוב',
     today: 'היום', tomorrow: 'מחר',
@@ -13,7 +13,7 @@ export const STRINGS = {
     football: '⚽', concert: '🎵', other: '•',
   },
   en: {
-    dir: 'ltr', locale: 'en-GB', toggle: 'עברית', brand: 'Game on? · Bloomfield',
+    dir: 'ltr', locale: 'en-GB', brand: 'Game on? · Bloomfield',
     yesGame: "There's a game", yesEvent: "There's an event", no: 'No game',
     next: 'Next event', noNext: 'No confirmed events coming up',
     today: 'Today', tomorrow: 'Tomorrow',
@@ -45,7 +45,19 @@ function el(tag, attrs = {}, ...children) {
   return node;
 }
 
-export const eventLine = (e) => [e.time ? `${e.time} · ` : '', el('bdi', {}, e.title)];
+const fullDate = (date) => new Date(`${date}T12:00:00Z`).toLocaleDateString(t('locale'), {
+  weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC',
+});
+
+export function eventRow(e, { showStatus = false, lead = null } = {}) {
+  const sub = [lead, e.time].filter(Boolean).join(' · ');
+  return el('li', { class: 'row' },
+    el('span', { class: 'tile', 'aria-hidden': 'true' }, t(e.kind)),
+    el('span', { class: 'row-main' },
+      el('span', { class: 'row-title' }, el('bdi', {}, e.title)),
+      sub ? el('span', { class: 'row-sub' }, sub) : null),
+    showStatus && e.status === 'tentative' ? el('span', { class: 'pill' }, t('tentative')) : null);
+}
 
 function relativeText({ type, weekday, date }) {
   const locale = t('locale');
@@ -62,7 +74,7 @@ function renderChrome() {
   document.documentElement.lang = state.lang;
   document.documentElement.dir = t('dir');
   document.title = t('brand');
-  $('lang').textContent = t('toggle');
+  document.querySelectorAll('#lang [data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
   document.querySelectorAll('[data-i18n]').forEach((n) => (n.textContent = t(n.dataset.i18n)));
 }
 
@@ -75,15 +87,16 @@ function renderAnswer(vm) {
   const answer = vm.today.busy ? (vm.today.isGame ? t('yesGame') : t('yesEvent')) : t('no');
   today.replaceChildren(
     el('p', { class: 'answer' }, answer),
-    ...(vm.today.busy ? [el('ul', {}, ...vm.today.events.map((e) => el('li', {}, ...eventLine(e))))] : []),
+    ...(vm.today.busy ? [el('ul', { class: 'group' }, ...vm.today.events.map((e) => eventRow(e)))] : []),
   );
 
   const next = $('next');
   next.replaceChildren(
-    el('div', { class: 'label' }, t('next')),
-    vm.next
-      ? el('div', { class: 'what' }, `${t(vm.next.event.kind)} ${relativeText(vm.next.relative)} · `, ...eventLine(vm.next.event))
-      : el('div', { class: 'what' }, t('noNext')),
+    el('h2', { class: 'section-title' }, t('next')),
+    el('ul', { class: 'group' },
+      vm.next
+        ? eventRow(vm.next.event, { lead: relativeText(vm.next.relative) })
+        : el('li', { class: 'row row-plain' }, t('noNext'))),
   );
 
   $('stale').hidden = !vm.stale;
@@ -159,7 +172,7 @@ export function renderCalendar() {
         el('span', { class: 'cal-num', 'aria-hidden': 'true' }, String(Number(date.slice(8)))),
         el('span', { class: 'sr-only' }, srOnlyText),
         ...events.map((e) => el('div', { class: `cal-event ${e.status}` },
-          `${t(e.kind)} `, ...eventLine(e), e.status === 'tentative' ? el('span', { class: 'cal-tag' }, t('tentative')) : null)),
+          `${t(e.kind)} `, e.time ? `${e.time} · ` : '', el('bdi', {}, e.title), e.status === 'tentative' ? el('span', { class: 'cal-tag' }, t('tentative')) : null)),
       );
     }),
   );
@@ -185,11 +198,12 @@ export function render() {
   }
 }
 
-$('lang').addEventListener('click', () => {
-  state.lang = state.lang === 'he' ? 'en' : 'he';
+document.querySelectorAll('#lang [data-lang]').forEach((b) => b.addEventListener('click', () => {
+  if (state.lang === b.dataset.lang) return;
+  state.lang = b.dataset.lang;
   saveLang(state.lang);
   render();
-});
+}));
 
 async function load() {
   try {
@@ -202,7 +216,7 @@ async function load() {
     // Keep showing existing data (the staleness warning covers it); only
     // report a load error when we have nothing at all to show.
     if (!state.data) {
-      $('today').replaceChildren(el('p', { class: 'warning' }, t('loadError')));
+      $('today').replaceChildren(el('p', { class: 'banner' }, t('loadError')));
     }
   }
 }
