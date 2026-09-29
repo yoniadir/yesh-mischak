@@ -36,3 +36,14 @@ export function viewModel(data, now) {
     generatedAt: data.generated_at,
   };
 }
+
+export function dayIndicators(events) {
+  const confirmed = events.some((e) => e.status === 'confirmed');
+  return { confirmed, tentative: !confirmed && events.some((e) => e.status === 'tentative') };
+}
+
+export function defaultSelection(events, month, today) {
+  if (today.startsWith(month)) return today;
+  const dates = events.filter((e) => e.date.startsWith(month)).map((e) => e.date).sort();
+  return dates[0] ?? null;
+}

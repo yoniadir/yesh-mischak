@@ -2,19 +2,26 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <title>יש משחק?</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="alternate" type="text/calendar" href="bloomfield.ics">
 </head>
 <body>
   <header class="bar">
-    <span class="brand" data-i18n="brand"></span>
-    <button id="lang" type="button"></button>
+    <div class="bar-inner">
+      <span class="brand" data-i18n="brand"></span>
+      <div id="lang" class="segmented" role="group" aria-label="שפה / Language">
+        <button type="button" data-lang="he" lang="he">עברית</button>
+        <button type="button" data-lang="en" lang="en">English</button>
+      </div>
+    </div>
   </header>
   <main>
-    <p id="stale" class="warning" hidden></p>
+    <p id="stale" class="banner" role="status" hidden></p>
     <figure id="stadium" class="stadium" aria-hidden="true" hidden>
       <!-- stadium:start -->
       <svg viewBox="0 0 118 106" width="118" height="106" shape-rendering="crispEdges" focusable="false"><use href="stadium.svg#art"/></svg>
@@ -25,9 +32,11 @@
     <section id="calendar" class="calendar"></section>
   </main>
   <footer>
+    <ul class="group">
+      <li><a class="row row-link" href="bloomfield.ics"><span class="row-main" data-i18n="subscribe"></span><span class="chev pt-end" aria-hidden="true"></span></a></li>
+    </ul>
     <p id="updated"></p>
     <p id="sources"></p>
-    <p><a href="bloomfield.ics" data-i18n="subscribe"></a></p>
   </footer>
   <script type="module" src="app.js"></script>
 </body>

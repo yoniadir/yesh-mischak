@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { viewModel } from './view.js';
+import { viewModel, dayIndicators, defaultSelection } from './view.js';
 
 const ev = (date, time, extra = {}) => ({
   id: `t:${date}:${time}`, date, time, title: `event ${date} ${time}`,
@@ -84,4 +84,28 @@ test('empty event list is coherent', () => {
   assert.deepEqual(vm.today, { busy: false, isGame: false, events: [] });
   assert.equal(vm.next, null);
   assert.equal(vm.stale, false);
+});
+
+test('dayIndicators: confirmed wins over tentative', () => {
+  assert.deepEqual(dayIndicators([]), { confirmed: false, tentative: false });
+  assert.deepEqual(dayIndicators([ev('2026-10-10', '19:30')]), { confirmed: true, tentative: false });
+  assert.deepEqual(dayIndicators([ev('2026-10-10', null, { status: 'tentative' })]), { confirmed: false, tentative: true });
+  assert.deepEqual(
+    dayIndicators([ev('2026-10-10', null, { status: 'tentative' }), ev('2026-10-10', '19:30')]),
+    { confirmed: true, tentative: false },
+  );
+});
+
+test('defaultSelection: today when the visible month is the current month', () => {
+  assert.equal(defaultSelection([], '2026-10', '2026-10-10'), '2026-10-10');
+  assert.equal(defaultSelection([ev('2026-10-20', '19:30')], '2026-10', '2026-10-10'), '2026-10-10');
+});
+
+test('defaultSelection: first event day of another month, in date order', () => {
+  const events = [ev('2026-11-20', '19:30'), ev('2026-11-05', null, { status: 'tentative' }), ev('2026-12-01', '19:30')];
+  assert.equal(defaultSelection(events, '2026-11', '2026-10-10'), '2026-11-05');
+});
+
+test('defaultSelection: nothing selected in an empty other month', () => {
+  assert.equal(defaultSelection([ev('2026-12-01', '19:30')], '2026-11', '2026-10-10'), null);
 });

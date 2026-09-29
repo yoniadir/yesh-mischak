@@ -1,8 +1,8 @@
-import { viewModel, jerusalemDate, TIMEZONE } from './view.js';
+import { viewModel, jerusalemDate, TIMEZONE, dayIndicators, defaultSelection } from './view.js';
 
 export const STRINGS = {
   he: {
-    dir: 'rtl', locale: 'he-IL', toggle: 'English', brand: 'יש משחק? · בלומפילד',
+    dir: 'rtl', locale: 'he-IL', brand: 'יש משחק? · בלומפילד',
     yesGame: 'יש משחק', yesEvent: 'יש אירוע', no: 'אין משחק',
     next: 'האירוע הבא', noNext: 'אין אירועים מאושרים בקרוב',
     today: 'היום', tomorrow: 'מחר',
@@ -11,9 +11,12 @@ export const STRINGS = {
     loadError: 'לא ניתן לטעון את הנתונים.',
     tentative: 'משוער', prevMonth: 'החודש הקודם', nextMonth: 'החודש הבא',
     football: '⚽', concert: '🎵', other: '•',
+    noEventsDay: 'אין אירועים ביום זה', noEventsMonth: 'אין אירועים החודש',
+    confirmedCount: (n) => (n === 1 ? 'אירוע מאושר אחד' : `${n} אירועים מאושרים`),
+    likelyCount: (n) => (n === 1 ? 'אירוע משוער אחד' : `${n} אירועים משוערים`),
   },
   en: {
-    dir: 'ltr', locale: 'en-GB', toggle: 'עברית', brand: 'Game on? · Bloomfield',
+    dir: 'ltr', locale: 'en-GB', brand: 'Game on? · Bloomfield',
     yesGame: "There's a game", yesEvent: "There's an event", no: 'No game',
     next: 'Next event', noNext: 'No confirmed events coming up',
     today: 'Today', tomorrow: 'Tomorrow',
@@ -22,6 +25,9 @@ export const STRINGS = {
     loadError: 'Could not load the data.',
     tentative: 'Likely', prevMonth: 'Previous month', nextMonth: 'Next month',
     football: '⚽', concert: '🎵', other: '•',
+    noEventsDay: 'No events', noEventsMonth: 'No events this month',
+    confirmedCount: (n) => (n === 1 ? '1 confirmed event' : `${n} confirmed events`),
+    likelyCount: (n) => (n === 1 ? '1 likely event' : `${n} likely events`),
   },
 };
 
@@ -35,7 +41,7 @@ function saveLang(lang) {
   try { localStorage.setItem(LANG_KEY, lang); } catch { /* private mode: not remembered */ }
 }
 
-export const state = { lang: loadLang(), data: null, month: jerusalemDate(new Date()).slice(0, 7) };
+export const state = { lang: loadLang(), data: null, month: jerusalemDate(new Date()).slice(0, 7), selected: null };
 export const t = (key) => STRINGS[state.lang][key];
 
 function el(tag, attrs = {}, ...children) {
@@ -45,7 +51,19 @@ function el(tag, attrs = {}, ...children) {
   return node;
 }
 
-export const eventLine = (e) => [e.time ? `${e.time} · ` : '', el('bdi', {}, e.title)];
+const fullDate = (date) => new Date(`${date}T12:00:00Z`).toLocaleDateString(t('locale'), {
+  weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC',
+});
+
+export function eventRow(e, { showStatus = false, lead = null } = {}) {
+  const sub = [lead, e.time].filter(Boolean).join(' · ');
+  return el('li', { class: 'row' },
+    el('span', { class: 'tile', 'aria-hidden': 'true' }, t(e.kind)),
+    el('span', { class: 'row-main' },
+      el('span', { class: 'row-title' }, el('bdi', {}, e.title)),
+      sub ? el('span', { class: 'row-sub' }, sub) : null),
+    showStatus && e.status === 'tentative' ? el('span', { class: 'pill' }, t('tentative')) : null);
+}
 
 function relativeText({ type, weekday, date }) {
   const locale = t('locale');
@@ -62,7 +80,7 @@ function renderChrome() {
   document.documentElement.lang = state.lang;
   document.documentElement.dir = t('dir');
   document.title = t('brand');
-  $('lang').textContent = t('toggle');
+  document.querySelectorAll('#lang [data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
   document.querySelectorAll('[data-i18n]').forEach((n) => (n.textContent = t(n.dataset.i18n)));
 }
 
@@ -75,15 +93,16 @@ function renderAnswer(vm) {
   const answer = vm.today.busy ? (vm.today.isGame ? t('yesGame') : t('yesEvent')) : t('no');
   today.replaceChildren(
     el('p', { class: 'answer' }, answer),
-    ...(vm.today.busy ? [el('ul', {}, ...vm.today.events.map((e) => el('li', {}, ...eventLine(e))))] : []),
+    ...(vm.today.busy ? [el('ul', { class: 'group' }, ...vm.today.events.map((e) => eventRow(e)))] : []),
   );
 
   const next = $('next');
   next.replaceChildren(
-    el('div', { class: 'label' }, t('next')),
-    vm.next
-      ? el('div', { class: 'what' }, `${t(vm.next.event.kind)} ${relativeText(vm.next.relative)} · `, ...eventLine(vm.next.event))
-      : el('div', { class: 'what' }, t('noNext')),
+    el('h2', { class: 'section-title' }, t('next')),
+    el('ul', { class: 'group' },
+      vm.next
+        ? eventRow(vm.next.event, { lead: relativeText(vm.next.relative) })
+        : el('li', { class: 'row row-plain' }, t('noNext'))),
   );
 
   $('stale').hidden = !vm.stale;
@@ -126,17 +145,20 @@ function groupByDate(events) {
   return byDay;
 }
 
-export function renderCalendar() {
+export function renderCalendar(focusSelector) {
   const locale = t('locale');
   const [y, m] = state.month.split('-').map(Number);
   const title = new Date(Date.UTC(y, m - 1, 15)).toLocaleDateString(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' });
   const today = jerusalemDate(new Date());
   const byDay = groupByDate(state.data.events);
+  const chev = (dir) => el('span', { class: `chev ${dir}`, 'aria-hidden': 'true' });
 
   const nav = el('div', { class: 'cal-nav' },
-    el('button', { type: 'button', 'aria-label': t('prevMonth'), 'data-shift': '-1' }, state.lang === 'he' ? '→' : '←'),
     el('h2', {}, title),
-    el('button', { type: 'button', 'aria-label': t('nextMonth'), 'data-shift': '1' }, state.lang === 'he' ? '←' : '→'),
+    state.month !== today.slice(0, 7) || state.selected !== today
+      ? el('button', { type: 'button', class: 'text-btn', 'data-today': '' }, t('today')) : null,
+    el('button', { type: 'button', class: 'icon-btn', 'aria-label': t('prevMonth'), 'data-shift': '-1' }, chev('pt-start')),
+    el('button', { type: 'button', class: 'icon-btn', 'aria-label': t('nextMonth'), 'data-shift': '1' }, chev('pt-end')),
   );
 
   const weekdayNames = Array.from({ length: 7 }, (_, i) =>
@@ -148,30 +170,58 @@ export function renderCalendar() {
     ...Array.from({ length: blanks }, () => el('li', { class: 'cal-blank', 'aria-hidden': 'true' })),
     ...days.map((date) => {
       const events = byDay.get(date) ?? [];
+      const { confirmed, tentative } = dayIndicators(events);
       const classes = ['cal-day'];
       if (date === today) classes.push('is-today');
       if (date < today) classes.push('is-past');
-      if (events.some((e) => e.status === 'confirmed')) classes.push('has-confirmed');
-      else if (events.length) classes.push('has-tentative');
-      const fullDate = new Date(`${date}T12:00:00Z`).toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
-      const srOnlyText = date === today ? `${fullDate}, ${t('today')}` : fullDate;
-      return el('li', { class: classes.join(' ') },
+      const confirmedCount = events.filter((e) => e.status === 'confirmed').length;
+      const likelyCount = events.length - confirmedCount;
+      const label = [
+        fullDate(date),
+        date === today ? t('today') : null,
+        confirmedCount ? t('confirmedCount')(confirmedCount) : null,
+        likelyCount ? t('likelyCount')(likelyCount) : null,
+      ].filter(Boolean).join(', ');
+      return el('li', {},
+        el('button', {
+          type: 'button', class: classes.join(' '), 'data-date': date, 'aria-label': label,
+          'aria-pressed': String(date === state.selected), ...(date === today ? { 'aria-current': 'date' } : {}),
+        },
         el('span', { class: 'cal-num', 'aria-hidden': 'true' }, String(Number(date.slice(8)))),
-        el('span', { class: 'sr-only' }, srOnlyText),
-        ...events.map((e) => el('div', { class: `cal-event ${e.status}` },
-          `${t(e.kind)} `, ...eventLine(e), e.status === 'tentative' ? el('span', { class: 'cal-tag' }, t('tentative')) : null)),
-      );
+        el('span', { class: 'cal-dots', 'aria-hidden': 'true' },
+          confirmed ? el('i', { class: 'dot confirmed' }) : null,
+          tentative ? el('i', { class: 'dot tentative' }) : null)));
     }),
   );
 
-  const section = document.getElementById('calendar');
-  section.replaceChildren(nav, grid);
-  section.querySelectorAll('[data-shift]').forEach((b) =>
-    b.addEventListener('click', () => {
-      state.month = shiftMonth(state.month, Number(b.dataset.shift));
-      renderCalendar();
-    }));
+  const selectedEvents = state.selected ? byDay.get(state.selected) ?? [] : [];
+  const detail = el('div', { class: 'cal-detail', 'aria-live': 'polite' },
+    state.selected ? el('h3', {}, fullDate(state.selected)) : null,
+    selectedEvents.length
+      ? el('ul', { class: 'list' }, ...selectedEvents.map((e) => eventRow(e, { showStatus: true })))
+      : el('p', { class: 'cal-empty' }, state.selected ? t('noEventsDay') : t('noEventsMonth')));
+
+  $('calendar').replaceChildren(el('div', { class: 'group cal-card' }, nav, grid, detail));
+  if (focusSelector) $('calendar').querySelector(focusSelector)?.focus();
 }
+
+$('calendar').addEventListener('click', (event) => {
+  const button = event.target.closest('button');
+  if (!button || !state.data) return;
+  const today = jerusalemDate(new Date());
+  if (button.dataset.date) {
+    state.selected = button.dataset.date;
+    renderCalendar(`[data-date="${state.selected}"]`);
+  } else if (button.dataset.shift) {
+    state.month = shiftMonth(state.month, Number(button.dataset.shift));
+    state.selected = defaultSelection(state.data.events, state.month, today);
+    renderCalendar(`[data-shift="${button.dataset.shift}"]`);
+  } else if (button.hasAttribute('data-today')) {
+    state.month = today.slice(0, 7);
+    state.selected = today;
+    renderCalendar(`[data-date="${today}"]`);
+  }
+});
 
 export function render() {
   renderChrome();
@@ -185,24 +235,26 @@ export function render() {
   }
 }
 
-$('lang').addEventListener('click', () => {
-  state.lang = state.lang === 'he' ? 'en' : 'he';
+document.querySelectorAll('#lang [data-lang]').forEach((b) => b.addEventListener('click', () => {
+  if (state.lang === b.dataset.lang) return;
+  state.lang = b.dataset.lang;
   saveLang(state.lang);
   render();
-});
+}));
 
 async function load() {
   try {
     const response = await fetch('events.json', { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
+    if (state.selected === null) state.selected = defaultSelection(state.data.events, state.month, jerusalemDate(new Date()));
     render();
   } catch (error) {
     console.error(error);
     // Keep showing existing data (the staleness warning covers it); only
     // report a load error when we have nothing at all to show.
     if (!state.data) {
-      $('today').replaceChildren(el('p', { class: 'warning' }, t('loadError')));
+      $('today').replaceChildren(el('p', { class: 'banner' }, t('loadError')));
     }
   }
 }
