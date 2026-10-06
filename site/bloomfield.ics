@@ -54,7 +54,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א- בני סכנין
 DTSTART;TZID=Asia/Jerusalem:20261010T193000
 DTEND;TZID=Asia/Jerusalem:20261010T213000
-DTSTAMP:20261005T095649Z
+DTSTAMP:20261006T094320Z
 UID:sportpalace:62E52298-C3F1-4AB8-BB5C-5BFB60C065E3:2026-10-10@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -64,7 +64,7 @@ BEGIN:VEVENT
 SUMMARY:הפועל ת"א- עירוני טבריה
 DTSTART;TZID=Asia/Jerusalem:20261017T184500
 DTEND;TZID=Asia/Jerusalem:20261017T204500
-DTSTAMP:20261005T095649Z
+DTSTAMP:20261006T094320Z
 UID:sportpalace:6154C526-E6C1-4EC1-B2CC-D2F2CFB88C2E:2026-10-17@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -75,7 +75,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א-הפועל חיפה
 DTSTART;TZID=Asia/Jerusalem:20261024T193000
 DTEND;TZID=Asia/Jerusalem:20261024T213000
-DTSTAMP:20261005T095649Z
+DTSTAMP:20261006T094320Z
 UID:sportpalace:33482530-D6CA-4B47-96C4-E94B9EF06F4F:2026-10-24@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -85,7 +85,7 @@ BEGIN:VEVENT
 SUMMARY:גמר גביע טוטו הפועל ת"א- מכבי ת"א
 DTSTART;TZID=Asia/Jerusalem:20261029T203000
 DTEND;TZID=Asia/Jerusalem:20261029T223000
-DTSTAMP:20261005T095649Z
+DTSTAMP:20261006T094320Z
 UID:sportpalace:C3EA0B2D-025A-4237-BB76-BA78EC5E99E2:2026-10-29@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
