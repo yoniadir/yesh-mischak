@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-17T10:28:28+03:00",
+  "generated_at": "2026-10-18T10:43:21+03:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -15,16 +15,6 @@
     }
   ],
   "events": [
-    {
-      "id": "sportpalace:62E52298-C3F1-4AB8-BB5C-5BFB60C065E3:2026-10-10",
-      "date": "2026-10-10",
-      "time": "19:30",
-      "title": "מכבי ת\"א- בני סכנין",
-      "kind": "football",
-      "status": "confirmed",
-      "source": "sportpalace",
-      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-בני-סכנין"
-    },
     {
       "id": "sportpalace:6154C526-E6C1-4EC1-B2CC-D2F2CFB88C2E:2026-10-17",
       "date": "2026-10-17",
