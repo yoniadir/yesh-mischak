@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-19T11:25:39+03:00",
+  "generated_at": "2026-10-20T11:08:13+03:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -46,34 +46,34 @@
       "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-גביע-טוטו-הפועל-ת-א-מכבי-ת-א"
     },
     {
-      "id": "365scores:4739299",
+      "id": "sportpalace:74C19107-743B-4AE5-9011-3B4B977207A0:2026-11-02",
       "date": "2026-11-02",
       "time": "20:30",
-      "title": "הפועל תל אביב – מכבי חיפה",
+      "title": "הפועל ת\"א-מכבי חיפה",
       "kind": "football",
-      "status": "tentative",
-      "source": "365scores",
-      "url": null
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-חיפה"
     },
     {
-      "id": "365scores:4739294",
+      "id": "sportpalace:BB921071-19C7-449D-B6CD-7EB21A21B491:2026-11-06",
       "date": "2026-11-06",
       "time": "14:00",
-      "title": "מכבי תל אביב – מכבי פתח תקוה",
+      "title": "מכבי ת\"א-מכבי פ\"ת",
       "kind": "football",
-      "status": "tentative",
-      "source": "365scores",
-      "url": null
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-פ-ת"
     },
     {
-      "id": "365scores:4739281",
+      "id": "sportpalace:B4BCBCE3-84A9-4F63-AFDC-BCEA5D89DC1A:2026-11-28",
       "date": "2026-11-28",
       "time": "19:00",
-      "title": "מכבי תל אביב – הפועל פתח תקוה",
+      "title": "מכבי ת\"א-הפועל פ\"ת",
       "kind": "football",
-      "status": "tentative",
-      "source": "365scores",
-      "url": null
+      "status": "confirmed",
+      "source": "sportpalace",
+      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/מכבי-ת-א-עירוני-קריית-אתא-3"
     },
     {
       "id": "365scores:4739274",
