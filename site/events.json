@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T10:50:53+03:00",
+  "generated_at": "2026-10-25T10:03:35+02:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -15,16 +15,6 @@
     }
   ],
   "events": [
-    {
-      "id": "sportpalace:6154C526-E6C1-4EC1-B2CC-D2F2CFB88C2E:2026-10-17",
-      "date": "2026-10-17",
-      "time": "18:45",
-      "title": "הפועל ת\"א- עירוני טבריה",
-      "kind": "football",
-      "status": "confirmed",
-      "source": "sportpalace",
-      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-עירוני-טבריה"
-    },
     {
       "id": "sportpalace:33482530-D6CA-4B47-96C4-E94B9EF06F4F:2026-10-24",
       "date": "2026-10-24",
