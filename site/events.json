@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T11:15:43+02:00",
+  "generated_at": "2026-10-30T11:31:01+02:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -107,7 +107,7 @@
     },
     {
       "id": "365scores:4886926",
-      "date": "2026-12-24",
+      "date": "2026-12-26",
       "time": "19:00",
       "title": "הפועל תל אביב – מכבי תל אביב",
       "kind": "football",
