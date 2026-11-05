@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-04T12:21:46+02:00",
+  "generated_at": "2026-11-05T12:15:41+02:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -88,7 +88,7 @@
     {
       "id": "365scores:4739257",
       "date": "2026-12-19",
-      "time": "19:00",
+      "time": "15:00",
       "title": "הפועל תל אביב – הפועל חיפה",
       "kind": "football",
       "status": "tentative",
@@ -107,8 +107,8 @@
     },
     {
       "id": "365scores:4739249",
-      "date": "2026-12-29",
-      "time": "19:00",
+      "date": "2026-12-30",
+      "time": "20:30",
       "title": "מכבי תל אביב – הפועל באר שבע",
       "kind": "football",
       "status": "tentative",
@@ -117,8 +117,8 @@
     },
     {
       "id": "365scores:4739241",
-      "date": "2027-01-02",
-      "time": "19:00",
+      "date": "2027-01-04",
+      "time": "20:30",
       "title": "הפועל תל אביב – מכבי תל אביב",
       "kind": "football",
       "status": "tentative",
