@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-05T12:15:41+02:00",
+  "generated_at": "2026-11-06T12:18:02+02:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -15,16 +15,6 @@
     }
   ],
   "events": [
-    {
-      "id": "sportpalace:C3EA0B2D-025A-4237-BB76-BA78EC5E99E2:2026-10-29",
-      "date": "2026-10-29",
-      "time": "20:30",
-      "title": "גמר גביע טוטו הפועל ת\"א- מכבי ת\"א",
-      "kind": "football",
-      "status": "confirmed",
-      "source": "sportpalace",
-      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/גמר-גביע-טוטו-הפועל-ת-א-מכבי-ת-א"
-    },
     {
       "id": "sportpalace:74C19107-743B-4AE5-9011-3B4B977207A0:2026-11-02",
       "date": "2026-11-02",
