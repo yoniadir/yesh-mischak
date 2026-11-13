@@ -54,7 +54,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א-מכבי פ"ת
 DTSTART;TZID=Asia/Jerusalem:20261106T140000
 DTEND;TZID=Asia/Jerusalem:20261106T160000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:BB921071-19C7-449D-B6CD-7EB21A21B491:2026-11-06@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -64,7 +64,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א-הפועל פ"ת
 DTSTART;TZID=Asia/Jerusalem:20261128T190000
 DTEND;TZID=Asia/Jerusalem:20261128T210000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:B4BCBCE3-84A9-4F63-AFDC-BCEA5D89DC1A:2026-11-28@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -75,7 +75,7 @@ BEGIN:VEVENT
 SUMMARY:הפועל ת"א- מכבי נתניה
 DTSTART;TZID=Asia/Jerusalem:20261203T200000
 DTEND;TZID=Asia/Jerusalem:20261203T220000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:E26974D9-DFF2-47C7-BCFE-D1C3FD1C378E:2026-12-03@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -85,7 +85,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א- עירוני טבריה
 DTSTART;TZID=Asia/Jerusalem:20261205T150000
 DTEND;TZID=Asia/Jerusalem:20261205T170000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:BB6C7F9A-F479-4FED-A1DE-02F57855FFD6:2026-12-05@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -96,7 +96,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א- הפועל ירושלים
 DTSTART;TZID=Asia/Jerusalem:20261212T210000
 DTEND;TZID=Asia/Jerusalem:20261212T230000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:B4949470-720A-413B-8F76-5B33023D7F80:2026-12-12@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -107,7 +107,7 @@ BEGIN:VEVENT
 SUMMARY:הפועל ת"א- הפועל חיפה
 DTSTART;TZID=Asia/Jerusalem:20261219T150000
 DTEND;TZID=Asia/Jerusalem:20261219T170000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:B3B58203-F716-4336-B19B-E81B34BD9FE6:2026-12-19@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -118,7 +118,7 @@ SUMMARY:גביע המדינה סיבוב ח-מכבי ת"א-הפועל ת"
  א
 DTSTART;TZID=Asia/Jerusalem:20261226T200000
 DTEND;TZID=Asia/Jerusalem:20261226T220000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:332D3E36-0AEE-4A16-ADC5-33FFD1143181:2026-12-26@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -129,7 +129,7 @@ BEGIN:VEVENT
 SUMMARY:מכבי ת"א-הפועל ב"ש
 DTSTART;TZID=Asia/Jerusalem:20261230T203000
 DTEND;TZID=Asia/Jerusalem:20261230T223000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:70B095C0-0B8A-4918-A548-A3CA0EFEAF16:2026-12-30@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
@@ -139,7 +139,7 @@ BEGIN:VEVENT
 SUMMARY:הפועל ת"א-מכבי ת"א
 DTSTART;TZID=Asia/Jerusalem:20270104T203000
 DTEND;TZID=Asia/Jerusalem:20270104T223000
-DTSTAMP:20261112T103529Z
+DTSTAMP:20261113T102754Z
 UID:sportpalace:840A653C-4E7D-4E88-A04F-7A4D0748F3D7:2027-01-04@yesh-misch
  ak
 URL:https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/me
