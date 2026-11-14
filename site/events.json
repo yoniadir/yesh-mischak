@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-13T12:27:54+02:00",
+  "generated_at": "2026-11-14T11:46:18+02:00",
   "timezone": "Asia/Jerusalem",
   "sources": [
     {
@@ -15,16 +15,6 @@
     }
   ],
   "events": [
-    {
-      "id": "sportpalace:BB921071-19C7-449D-B6CD-7EB21A21B491:2026-11-06",
-      "date": "2026-11-06",
-      "time": "14:00",
-      "title": "מכבי ת\"א-מכבי פ\"ת",
-      "kind": "football",
-      "status": "confirmed",
-      "source": "sportpalace",
-      "url": "https://www.sportpalace.co.il/tlv-faclities/sport-halls/menora-hall/menorah-mivtachim-hall-events-calendar/הפועל-ת-א-מכבי-פ-ת"
-    },
     {
       "id": "sportpalace:B4BCBCE3-84A9-4F63-AFDC-BCEA5D89DC1A:2026-11-28",
       "date": "2026-11-28",
